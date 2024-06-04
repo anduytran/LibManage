@@ -24,7 +24,7 @@ Course Expectations:
 
 ● New User creation/registration should be available
 
-● UI design should contain elements commonly found or expected such as a user profile, login, logout.
+● UI design should contain elements commonly found or expected such as a user profile, login, logout
 
 ● Consideration for design aesthetics
 
