@@ -11,6 +11,7 @@ a database on a central server). You will gather more detailed requirements at a
 client meeting with your project manager/TA.
 
 Course Specifications:
+
 ● Implements user authentication
 
 ● Implements a dynamic database of user and item data
@@ -18,6 +19,7 @@ Course Specifications:
 ● Implements one or more “operations” involving some form of frontend-backend-database communication
 
 Course Expectations:
+
 ● Databases can use any existing dataset or have dummy data. Databases using datasets should have at least 100 items. There can be exceptions based on the specific project.
 
 ● New User creation/registration should be available
