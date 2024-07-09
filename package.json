@@ -1,0 +1,18 @@
+{
+  "name": "libmanage",
+  "version": "1.0.0",
+  "description": "You are tasked with developing an inventory and checkout system for a library. It should include a front-facing interface for members to search for resources (e.g., books) and view their availability, as well as allow library employees to manage inventory and process checkouts and returns. We would also like a small event scheduling system for events the library is running, and members should be able to view these events when interacting with the system. While this system is not required to be developed to be accessed via the web, it must be able to be run on multiple different machines while accessing a central database (you will run a database locally for testing and development, but it should function as if you were connecting to a database on a central server). You will gather more detailed requirements at an upcoming client meeting with your project manager/TA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0",
+    "nodemon": "^3.1.4"
+  }
+}
