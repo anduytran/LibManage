@@ -10,7 +10,6 @@ mongoose.connect(dbURI)
 
 app.set('view engine', 'ejs');
 
-app.listen(8001);
 
 app.use(express.urlencoded({ extended: true }))
 
