@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: #edebe7;
+    color: #000;
+}
+.logo{
+    width: 200px;
+    cursor:pointer;
+}
+nav{
+    display:flex;
+    overflow: hidden;
+    background-color: #dfddd9;
+    align-items: center;
+    padding: 10px 25px;
+}
+nav a{
+    cursor:pointer;
+    float:left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+}
+nav a:hover{
+    background-color: #c6c5c1;
+}
+nav button{
+    cursor:pointer;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #000000;
+}
+nav button:hover{
+    background-color: #c6c5c1;
+}
+.dropdown{
+    background-color: #fff;
+    display:inline-flex;
+    align-items: center;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+}
+.dropdown:hover{
+    cursor: pointer;
+}
+.register{
+    background-color: #f29d15;
+    float: inline-end;
+    color: #ffffff;
+}
+.register:hover{
+    background-color: #d08714;
+}
+nav form{
+    text-align: center;
+}
+.submit{
+    background-image: url("images/search-icon.png");
+    float:right;
+    padding: 6px 10px;
+    background:#ddd;
+    font-size: 17px;
+}
+nav button, input[type=text], .submit{
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+}
+nav input[type=text]{
+    border: 1px solid #ccc;
+}
