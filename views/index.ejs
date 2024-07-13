@@ -5,18 +5,123 @@
         <title>ManageLib</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <div class="topnav">
+    <ul class="topnav">
         <nav>
-            <img src = "images/book.png" class = "logo" height= 60>
+            <li id = "logo">
+                <a href="#" class = "logo"><img src = "images/book.png" height= 60></a>
+            </li>
+            <li>
                 <a>Books</a>
+            </li>
+            <li>
                 <a>Events</a>
-                <button class = "dropdown">Genre </button>
-                <form>
-                    <input class = "search" placeholder="Search..." required>
-                    <button type = "submit" class = "submit"></button>
+            </li>
+            
+            <li id = "search-by">
+                <a href= "#">Search By</a>
+                <ul class = "subnav">
+                    <li><a href = "#">Title</a></li>
+                    <li><a href = "#">Genre</a></li>
+                    <li><a href = "#">Author</a></li>
+                    <li><a href = "#">Location</a></li>
+                    <li><a href = "#">Description</a></li>
+                    <li><a href = "#"># of Copies</a></li>
+                    <li><a href = "#">Versions</a></li>
+                    <li><a href = "#">Type of Resource</a></li>
+                    <li><a href = "#">Availability</a></li>
+                    <li><a href = "#">Checkout History</a></li>
+                </ul>
+            </li>
+            <li id="search">
+                <form action = "" method = "get">
+                    <input type = "text" name = "search-text" id = "search-text" class = "search" placeholder="Search..." required>
+                    <button type = "button" class = "submit" name="search-button" id="search-button"></button>
                 </form>
-                <button>Log In</button>
-                <button class = "register">Sign Up</button>
+            </li>
+            <button>Log In</button>
+            <button class = "register">Sign Up</button>
         </nav>
+    </ul>
+
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
     </div>
+
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+    
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+    
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+
+    <div class = "preview-gallery">
+        <a target="_blank" href = "images/images.jpeg">
+            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
+        </a>
+        <div class="title">Title...</div>
+        <div class="author">by...</div>
+    </div>
+
+    <!--
+    <div class="book content">
+        <h2>All Books</h2>
+
+        <%# if (blogs.length > 0) { %>
+            <%# blogs.forEach(blog => { %>
+                <a class="single" href="/blogs/<%#= blog._id %>">
+                    <h3 class="title"><%#= blog.title %></h3>
+                    <p class="snippet"><%#= blog.snippet %></p>
+                </a>
+            <#% }) %>
+
+        <#% } else { %>
+            <p>There are no blogs to display</p>
+        <#% } %>
+    </div>
+    -->
 </html>
