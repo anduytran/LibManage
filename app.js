@@ -21,3 +21,23 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
+// Add POST routes for form submissions if needed
+app.post('/login', (req, res) => {
+    // Handle login logic
+});
+
+app.post('/signup', (req, res) => {
+    // Handle signup logic
+});
+
+app.post('/', (req, res) => {
+    // Handle signup logic
+});
