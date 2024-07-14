@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
+        <title>ManageLib</title>
+        <link rel="stylesheet" href="loginStyle.css">
+    </head>
+<body>
+    <div class="topnav">
+        <nav>
+            <a href="/" class = "logo"><img src = "images/book.png" height= 60></a>
+            <a href="/">Books</a>
+            <a href="/events">Events</a>
+            <button onclick="window.location.href='/login'">Log In</button>
+            <button class = "register" onclick="window.location.href='/signup'">Sign Up</button>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+</body>
+</html>
