@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
-        <title>ManageLib</title>
+        <title>ManageLib | Home</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <ul class="topnav">
@@ -45,39 +45,17 @@
 
     
     <div id="preview-gallery-container">
-
-    </div>
-    
-    <script>
-      var wrapper = document.getElementById("preview-gallery-container");
-    
-      var myHTML = '';
-    
-      for (var i = 0; i < 8; i++) {
-        myHTML += '<div class = "preview-gallery"> \
-                        <a target="_blank" href = "images/images.jpeg"> \
-                            <img src="images/images.jpeg" alt = "Book" width = "183" height="276"> \
-                        </a> \
-                        <div class="title">Title...</div> \
-                        <div class="author">by...</div> \
-                    </div>' 
-      }
-    
-      wrapper.innerHTML = myHTML
-    
-    </script>
-    
-    <div class="preview-gallery">
-        <h2>All Books</h2>
-        <br>
         <% books.forEach(book => { %>
-            <h3><%= book.title %></h3>
-            <h3><%= book.pages %></h3>
-            <h3><%= book.stock %></h3>
-            <h3><%= book.copies %></h3>
-            <h3><%= book.genres %></h3>
-            <br>
+            <div class = "preview-gallery"> 
+                <a target="_blank" href = "images/images.jpeg"> 
+                    <img src="images/images.jpeg" alt = "Book" width = "180" height="276"> 
+                </a> 
+                <div class="title">Title: <%= book.title %></div> 
+                <div class="author">Author: <%= book.pages %></div>
+                <div class="copies">Copies: <%= book.copies %></div> 
+            </div>
+    
         <% }) %>
     </div>
-   
+
 </html>
