@@ -84,9 +84,7 @@ app.get('/books/find-stock', (req, res) => {
       });
 });
 
-app.use((req, res) => {
-    res.status(404).render('404', { title: '404' });
-});
+
 
 const Event = mongoose.model('Event', eventSchema);
 
@@ -117,4 +115,8 @@ app.post('/add-event', async (req, res) => {
     const newEvent = new Event({ title, description, image, date, time });
     await newEvent.save();
     res.redirect('/events');
+});
+
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
 });
