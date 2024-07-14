@@ -44,6 +44,28 @@ app.get('/books/find-author/:search', (req, res) => {
       });
 });
 
+app.get('/books/find-title/:search', (req, res) => {
+    const searchInput = req.params.search
+    Book.find({ "title": { "$regex": searchInput, "$options": 'i' } })
+        .then(result => {
+            res.render('index', { books: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+});
+
+app.get('/books/find-genre/:search', (req, res) => {
+    const searchInput = req.params.search
+    Book.find({ "genres": { "$regex": searchInput, "$options": 'i' } })
+        .then(result => {
+            res.render('index', { books: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+});
+
 app.get('/books/find-stock', (req, res) => {
     Book.find({ "stock": true })
         .then(result => {
