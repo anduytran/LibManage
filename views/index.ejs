@@ -43,85 +43,41 @@
         </nav>
     </ul>
 
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
+    
+    <div id="preview-gallery-container">
 
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
     </div>
     
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
+    <script>
+      var wrapper = document.getElementById("preview-gallery-container");
     
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <!--
-    <div class="book content">
+      var myHTML = '';
+    
+      for (var i = 0; i < 8; i++) {
+        myHTML += '<div class = "preview-gallery"> \
+                        <a target="_blank" href = "images/images.jpeg"> \
+                            <img src="images/images.jpeg" alt = "Book" width = "183" height="276"> \
+                        </a> \
+                        <div class="title">Title...</div> \
+                        <div class="author">by...</div> \
+                    </div>' 
+      }
+    
+      wrapper.innerHTML = myHTML
+    
+    </script>
+    
+    <div class="preview-gallery">
         <h2>All Books</h2>
-
-        <%# if (blogs.length > 0) { %>
-            <%# blogs.forEach(blog => { %>
-                <a class="single" href="/blogs/<%#= blog._id %>">
-                    <h3 class="title"><%#= blog.title %></h3>
-                    <p class="snippet"><%#= blog.snippet %></p>
-                </a>
-            <#% }) %>
-
-        <#% } else { %>
-            <p>There are no blogs to display</p>
-        <#% } %>
+        <br>
+        <% books.forEach(book => { %>
+            <h3><%= book.title %></h3>
+            <h3><%= book.pages %></h3>
+            <h3><%= book.stock %></h3>
+            <h3><%= book.copies %></h3>
+            <h3><%= book.genres %></h3>
+            <br>
+        <% }) %>
     </div>
-    -->
+   
 </html>
