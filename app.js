@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require ('mongoose');
+const morgan = require('morgan');
 const Book = require('./models/book');
 
 const app = express();
@@ -12,25 +13,15 @@ mongoose.connect(dbURI)
 // app.listen(8000);
 
 app.set('view engine', 'ejs');
-
 app.use(express.static('public'));
-
-
 app.use(express.urlencoded({ extended: true }))
+app.use(morgan('dev'));
+
+
 
 app.get('/', (req, res) => {
     res.redirect('/books')
 })
-
-// [----- Routing for Sign in -----]
-// app.get('[REPLACE ME]', (req, res) => {
-//     res.render('index')
-// })
-
-// [----- Routing for Sign up -----]
-// app.get('[REPLACE ME]', (req, res) => {
-//     res.render('index')
-// })
 
 app.get('/books', (req, res) => {
     Book.find().sort({ createdAt: -1 })
@@ -40,5 +31,32 @@ app.get('/books', (req, res) => {
         .catch(err => {
             console.log(err);
         });
-    
 });
+
+app.get('/books-find', (req, res) => {
+    Book.find({ "author": { "$regex": "echo", "$options": 'i' } })
+        .then(result => {
+            res.render('index', { books: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+});
+
+app.get('/books/:search', (req, res) => {
+    const searchInput = req.params.search
+    Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
+        .then(result => {
+            res.render('index', { books: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+});
+
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
+});
+
+
+  

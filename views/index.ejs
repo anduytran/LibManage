@@ -43,6 +43,7 @@
         </nav>
     </ul>
 
+    <% console.log(books) %>
     
     <div id="preview-gallery-container">
         <% books.forEach(book => { %>
@@ -51,11 +52,10 @@
                     <img src="images/images.jpeg" alt = "Book" width = "180" height="276"> 
                 </a> 
                 <div class="title">Title: <%= book.title %></div> 
-                <div class="author">Author: <%= book.pages %></div>
+                <div class="author">Author: <%= book.author %></div>
                 <div class="copies">Copies: <%= book.copies %></div> 
             </div>
     
         <% }) %>
     </div>
-
 </html>
