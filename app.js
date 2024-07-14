@@ -33,8 +33,9 @@ app.get('/books', (req, res) => {
         });
 });
 
-app.get('/books-find-author', (req, res) => {
-    Book.find({ "author": { "$regex": "echo", "$options": 'i' } })
+app.get('/books/find-author/:search', (req, res) => {
+    const searchInput = req.params.search
+    Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
             res.render('index', { books: result });
         })
@@ -45,17 +46,6 @@ app.get('/books-find-author', (req, res) => {
 
 app.get('/books/find-stock', (req, res) => {
     Book.find({ "stock": true })
-        .then(result => {
-            res.render('index', { books: result });
-        })
-        .catch(err => {
-            console.log(err);
-      });
-});
-
-app.get('/books/:search', (req, res) => {
-    const searchInput = req.params.search
-    Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
             res.render('index', { books: result });
         })
