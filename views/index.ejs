@@ -2,13 +2,14 @@
 <html>
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
-        <title>ManageLib</title>
-        <link rel="stylesheet" href="style.css">
+        <title>ManageLib | Home</title>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <ul class="topnav">
         <nav>
             <li id = "logo">
-                <a href="/" class = "logo"><img src = "images/book.png" height= 60></a>
+                <a href="#" class = "logo"><img src = "/images/book.png" height= 60></a>
+
             </li>
             <li>
                 <a href="/">Books</a>
@@ -43,85 +44,19 @@
         </nav>
     </ul>
 
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
+    <% console.log(books) %>
     
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
+    <div id="preview-gallery-container">
+        <% books.forEach(book => { %>
+            <div class = "preview-gallery"> 
+                <a target="_blank" href = "/images/images.jpeg"> 
+                    <img src="/images/images.jpeg" alt = "Book" width = "180" height="276"> 
+                </a> 
+                <div class="title">Title: <%= book.title %></div> 
+                <div class="author">Author: <%= book.author %></div>
+                <div class="copies">Copies: <%= book.copies %></div> 
+            </div>
     
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
+        <% }) %>
     </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <div class = "preview-gallery">
-        <a target="_blank" href = "images/images.jpeg">
-            <img src="images/images.jpeg" alt = "Book" width = "183" height="276">
-        </a>
-        <div class="title">Title...</div>
-        <div class="author">by...</div>
-    </div>
-
-    <!--
-    <div class="book content">
-        <h2>All Books</h2>
-
-        <%# if (blogs.length > 0) { %>
-            <%# blogs.forEach(blog => { %>
-                <a class="single" href="/blogs/<%#= blog._id %>">
-                    <h3 class="title"><%#= blog.title %></h3>
-                    <p class="snippet"><%#= blog.snippet %></p>
-                </a>
-            <#% }) %>
-
-        <#% } else { %>
-            <p>There are no blogs to display</p>
-        <#% } %>
-    </div>
-    -->
 </html>
