@@ -28,8 +28,10 @@
             <% events.forEach(event => { %>
                 <div class = "preview-gallery"> 
                     <div class="title"><%= event.title %></div> 
-                    <div class="author"><%= event.description %></div>
-                    <div class="copies"><%= event.date.toDateString().substring(3,15) %></div> 
+                    <div class="description"><%= event.description %></div>
+                    <div class="date"><%= event.date.toDateString().substring(3,15) %></div>
+                    <div class="time"><%= event.time %></div>
+                    <img src="/images/library.jpg" alt = "Book" width = "350" height="auto"> 
                 </div>
             <% }) %>
         </div>
