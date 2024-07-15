@@ -118,12 +118,17 @@ app.post('/signup', (req, res) => {
 });
 
 // Example: Adding some events (for testing purposes, you can remove this later)
-// app.post('/add-event', async (req, res) => {
-//     const { title, description, image, date, time } = req.body;
-//     const newEvent = new Event({ title, description, image, date, time });
-//     await newEvent.save();
-//     res.redirect('/events');
-// });
+
+app.get('/add-event', (req, res) => {
+    res.render('eventCreate');
+});
+
+app.post('/add-event', (req, res) => {
+    const { title, description, image, date, time } = req.body;
+    const newEvent = new Event({ title, description, image, date, time });
+    newEvent.save();
+    res.redirect('/events');
+});
 
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
