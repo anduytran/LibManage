@@ -28,5 +28,6 @@ const bookSchema = new Schema({
     }
 })
 
+// Here, the string "Book" is important to be the singular of the name of the collection we want to reference in the db
 const Book = mongoose.model('Book', bookSchema);
 module.exports = Book;

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require ('mongoose');
 const morgan = require('morgan');
 const Book = require('./models/book');
+const Event = require('./models/event');
 
 const app = express();
 
@@ -18,14 +19,14 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'));
 
 
-// Event Schema
-const eventSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    image: String,
-    date: Date,
-    time: String
-});
+// // Event Schema
+// const eventSchema = new mongoose.Schema({
+//     title: String,
+//     description: String,
+//     image: String,
+//     date: Date,
+//     time: String
+// });
 
 app.get('/', (req, res) => {
     res.redirect('/books')
@@ -86,7 +87,8 @@ app.get('/books/find-stock', (req, res) => {
 
 
 
-const Event = mongoose.model('Event', eventSchema);
+
+// const Event = mongoose.model('Event', eventSchema);
 
 app.get('/login', (req, res) => {
     res.render('login');
@@ -97,7 +99,13 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/events', async (req, res) => {
-    res.render('events');
+    Event.find().sort({ createdAt: -1 })
+        .then(result => {
+            res.render('events', { events: result });
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 // Add POST routes for form submissions if needed
@@ -110,10 +118,15 @@ app.post('/signup', (req, res) => {
 });
 
 // Example: Adding some events (for testing purposes, you can remove this later)
-app.post('/add-event', async (req, res) => {
+
+app.get('/add-event', (req, res) => {
+    res.render('eventCreate');
+});
+
+app.post('/add-event', (req, res) => {
     const { title, description, image, date, time } = req.body;
     const newEvent = new Event({ title, description, image, date, time });
-    await newEvent.save();
+    newEvent.save();
     res.redirect('/events');
 });
 
