@@ -19,15 +19,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'));
 
 
-// // Event Schema
-// const eventSchema = new mongoose.Schema({
-//     title: String,
-//     description: String,
-//     image: String,
-//     date: Date,
-//     time: String
-// });
-
 app.get('/', (req, res) => {
     res.redirect('/books')
 })
@@ -88,8 +79,6 @@ app.get('/books/find-stock', (req, res) => {
 
 
 
-// const Event = mongoose.model('Event', eventSchema);
-
 app.get('/login', (req, res) => {
     res.render('login');
 });
@@ -116,8 +105,6 @@ app.post('/login', (req, res) => {
 app.post('/signup', (req, res) => {
     // Handle signup logic
 });
-
-// Example: Adding some events (for testing purposes, you can remove this later)
 
 app.get('/add-event', (req, res) => {
     res.render('eventCreate');
