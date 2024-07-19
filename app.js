@@ -3,6 +3,7 @@ const mongoose = require ('mongoose');
 const morgan = require('morgan');
 const Book = require('./models/book');
 const Event = require('./models/event');
+const Search = require('./models/search')
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.get('/books', (req, res) => {
 
 app.get('/books/find-author/:search', (req, res) => {
     const searchInput = req.params.search
+    
     Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
             res.render('index', { books: result });
@@ -115,6 +117,27 @@ app.post('/add-event', (req, res) => {
     const newEvent = new Event({ title, description, image, date, time });
     newEvent.save();
     res.redirect('/events');
+});
+
+
+app.get('/books/find', (req, res) => {
+
+
+    Book.find({ "title": { "$regex": "Avengers", "$options": 'i' } })
+        .then(result => {
+            res.render('index', { books: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+
+      // Book.find({ "title": { "$regex": searchInput, "$options": 'i' } })
+      //     .then(result => {
+      //         res.render('index', { books: result });
+      //     })
+      //     .catch(err => {
+      //         console.log(err);
+      //   });
 });
 
 app.use((req, res) => {
