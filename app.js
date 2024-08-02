@@ -18,6 +18,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'));
 
+// [----- Routes -----]
+
 app.get('/', (req, res) => {
     res.redirect('/books')
 })
@@ -32,53 +34,51 @@ app.get('/books', (req, res) => {
         });
 });
 
-app.get('/books/find-author/:search', (req, res) => {
-    const searchInput = req.params.search
-    Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
+app.get('/books/search/', (req, res) => {
+    console.log(req.query)
+    console.log(req.query["search-filter"])
+    console.log(req.query["search-text"])
+
+    let filter = req.query["search-filter"];
+    let searchInput = req.query["search-text"]
+
+    if (filter == "author") {
+        Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
             res.render('index', { books: result });
         })
         .catch(err => {
             console.log(err);
       });
-});
-
-app.get('/books/find-title/:search', (req, res) => {
-    const searchInput = req.params.search
-    Book.find({ "title": { "$regex": searchInput, "$options": 'i' } })
+    }
+    else if (filter == "title") {
+        Book.find({ "title": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
             res.render('index', { books: result });
         })
         .catch(err => {
             console.log(err);
       });
-});
-
-app.get('/books/find-genre/:search', (req, res) => {
-    const searchInput = req.params.search
-    Book.find({ "genres": { "$regex": searchInput, "$options": 'i' } })
+    }
+    else if (filter == "genre") {
+        Book.find({ "genres": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
             res.render('index', { books: result });
         })
         .catch(err => {
             console.log(err);
       });
-});
-
-app.get('/books/find-stock', (req, res) => {
-    Book.find({ "stock": true })
+    }
+    else if (filter == "stock") {
+        Book.find({ "stock": true })
         .then(result => {
             res.render('index', { books: result });
         })
         .catch(err => {
             console.log(err);
       });
+    }
 });
-
-
-
-
-// const Event = mongoose.model('Event', eventSchema);
 
 app.get('/login', (req, res) => {
     res.render('login');
@@ -98,7 +98,6 @@ app.get('/events', async (req, res) => {
         });
 });
 
-// Add POST routes for form submissions if needed
 app.post('/login', (req, res) => {
     // Handle login logic
 });
@@ -106,8 +105,6 @@ app.post('/login', (req, res) => {
 app.post('/signup', (req, res) => {
     // Handle signup logic
 });
-
-// Example: Adding some events (for testing purposes, you can remove this later)
 
 app.get('/add-event', (req, res) => {
     res.render('eventCreate');
@@ -123,3 +120,4 @@ app.post('/add-event', (req, res) => {
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
 });
+

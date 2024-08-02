@@ -11,14 +11,16 @@
                 <a href="/" class = "logo"><img src = "/images/book.png" height= 60></a>
 
             </li>
+            
             <li>
                 <a href="/">Books</a>
             </li>
+            
             <li>
                 <a href="/events">Events</a>
             </li>
             
-            <li id = "search-by">
+            <!-- <li id = "search-by">
                 <a href= "#">Search By</a>
                 <ul class = "subnav">
                     <li><a href = "#">Title</a></li>
@@ -32,41 +34,29 @@
                     <li><a href = "#">Availability</a></li>
                     <li><a href = "#">Checkout History</a></li>
                 </ul>
-            </li>
+            </li> -->
 
             <li id="search">
-                <form action = "" method = "get">
-                    <input type = "text" name = "search-text" id = "search-text" class = "search" placeholder="Search..." required>
-                    <button type = "button" class = "submit" name="search-button" id="search-button"></button>
+                <form action="/books/search" method="get">
+                    <select name="search-filter" id="search-filter">
+                        <option value="title">Title</option>
+                        <option value="genre">Genre</option>
+                        <option value="author">Author</option>
+                        <option value="stock">Stock</option>
+                    </select>
+                    
+                    <input type="text" name="search-text" id="search-text" class="search" placeholder="">
+                    <button type="button" class="submit" name="search-button" id="search-button"></button>
+                    
                 </form>
             </li>
+
             <button onclick="window.location.href='/login'">Log In</button>
-            <button class = "register" onclick="window.location.href='/signup'">Sign Up</button>
+            <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
         </nav>
     </ul>
 
-    <label for="dog-names">Choose a dog name:</label>
-    <select name="dog-names" id="dog-names" onchange="run()">
-        <option value="rigatoni">Rigatoni</option>
-        <option value="dave">Dave</option>
-        <option value="pumpernickel">Pumpernickel</option>
-        <option value="reeses">Reeses</option>
-    </select>
-
-    <script>
-        function run() {
-            var e = document.getElementById("dog-names");
-            var value = e.options[e.selectedIndex].value;
-            var text = e.options[e.selectedIndex].text;
-            
-            console.log(e.options[e.selectedIndex]);
-            console.log(value);
-            console.log(text);
-            return value;
-        }
-    </script>
-
-    
+   
     <div id="preview-gallery-container">
         <% books.forEach(book => { %>
             <div class = "preview-gallery"> 
@@ -80,10 +70,5 @@
     
         <% }) %>
     </div>
-
-    <div>
-        
-    </div>
-
 
 </html>
