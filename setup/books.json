@@ -1,0 +1,667 @@
+[
+    {
+        "title": "The Empire Strikes Back",
+        "author": "Grand Admiral Thrawn",
+        "pages": 480,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 3
+    },
+    {
+        "title": "Attack of the Clones",
+        "author": "Darth Maul",
+        "pages": 240,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 16
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Asajj Ventress",
+        "pages": 495,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Ezra Bridger",
+        "pages": 437,
+        "genres": [],
+        "stock": true,
+        "copies": 6
+    },
+    {
+        "title": "A New Hope",
+        "author": "Leia Organa",
+        "pages": 426,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 11
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Luke Skywalker",
+        "pages": 294,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "A New Hope",
+        "author": "Commander Cody",
+        "pages": 209,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "A New Hope",
+        "author": "Morgan Elsbeth",
+        "pages": 202,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "The Empire Strikes Back",
+        "author": "Commander Cody",
+        "pages": 209,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Avengers",
+        "author": "Ki Adi Mundi",
+        "pages": 205,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8"
+        ],
+        "stock": true,
+        "copies": 9
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Ahsoka Tano",
+        "pages": 352,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Darth Vader",
+        "pages": 302,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 13
+    },
+    {
+        "title": "Avengers",
+        "author": "Mon Mothma",
+        "pages": 467,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Infinity War",
+        "author": "Leia Organa",
+        "pages": 313,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8",
+            "genre9"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "A New Hope",
+        "author": "Captain Rex",
+        "pages": 257,
+        "genres": [
+            "genre1"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "A New Hope",
+        "author": "Ki Adi Mundi",
+        "pages": 401,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Infinity War",
+        "author": "Commander Cody",
+        "pages": 221,
+        "genres": [
+            "genre1"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Commander Cody",
+        "pages": 263,
+        "genres": [],
+        "stock": true,
+        "copies": 8
+    },
+    {
+        "title": "Return of the Jedi",
+        "author": "Leia Organa",
+        "pages": 304,
+        "genres": [],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Return of the Jedi",
+        "author": "Qui-Gon Jin",
+        "pages": 304,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Avengers",
+        "author": "Garazeb Orrelios",
+        "pages": 275,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Dune",
+        "author": "Commander Cody",
+        "pages": 228,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3"
+        ],
+        "stock": true,
+        "copies": 9
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Leia Organa",
+        "pages": 381,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": true,
+        "copies": 3
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Garazeb Orrelios",
+        "pages": 483,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": true,
+        "copies": 7
+    },
+    {
+        "title": "Infinity War",
+        "author": "Tech",
+        "pages": 383,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3"
+        ],
+        "stock": true,
+        "copies": 3
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Mon Mothma",
+        "pages": 308,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": true,
+        "copies": 19
+    },
+    {
+        "title": "Attack of the Clones",
+        "author": "Anakin Skywalker",
+        "pages": 319,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 5
+    },
+    {
+        "title": "Attack of the Clones",
+        "author": "Garazeb Orrelios",
+        "pages": 364,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 6
+    },
+    {
+        "title": "The Phantom Menace",
+        "author": "Echo",
+        "pages": 335,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": true,
+        "copies": 0
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Leia Organa",
+        "pages": 466,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Hera Syndulla",
+        "pages": 461,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": true,
+        "copies": 11
+    },
+    {
+        "title": "A New Hope",
+        "author": "Crosshair",
+        "pages": 490,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Omega",
+        "pages": 206,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8",
+            "genre9"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Return of the Jedi",
+        "author": "Ahsoka Tano",
+        "pages": 291,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8"
+        ],
+        "stock": true,
+        "copies": 12
+    },
+    {
+        "title": "The Empire Strikes Back",
+        "author": "Plo Koon",
+        "pages": 469,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Avengers",
+        "author": "Plo Koon",
+        "pages": 443,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8"
+        ],
+        "stock": true,
+        "copies": 11
+    },
+    {
+        "title": "Revenge of the Sith",
+        "author": "Hera Syndulla",
+        "pages": 331,
+        "genres": [],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Anakin Skywalker",
+        "pages": 227,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Attack of the Clones",
+        "author": "Crosshair",
+        "pages": 457,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": true,
+        "copies": 16
+    },
+    {
+        "title": "Attack of the Clones",
+        "author": "Hunter",
+        "pages": 420,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8",
+            "genre9"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Avengers",
+        "author": "Baylan Skoll",
+        "pages": 304,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Omega",
+        "pages": 335,
+        "genres": [],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Dune",
+        "author": "Captain Rex",
+        "pages": 360,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Dune",
+        "author": "Omega",
+        "pages": 500,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": true,
+        "copies": 7
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Mon Mothma",
+        "pages": 346,
+        "genres": [
+            "genre1"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Dune",
+        "author": "Ki Adi Mundi",
+        "pages": 365,
+        "genres": [],
+        "stock": true,
+        "copies": 1
+    },
+    {
+        "title": "The Incredibles",
+        "author": "Padme Amidala",
+        "pages": 400,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "A New Hope",
+        "author": "Asajj Ventress",
+        "pages": 477,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Dune",
+        "author": "Luke Skywalker",
+        "pages": 258,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "title": "Infinity War",
+        "author": "Ahsoka Tano",
+        "pages": 275,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8",
+            "genre9"
+        ],
+        "stock": true,
+        "copies": 9
+    }
+]
