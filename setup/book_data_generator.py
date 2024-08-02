@@ -29,8 +29,6 @@ def generate_books():
         data["title"] = title[random.randint(0, len(title)-1)]
         data["author"] = author[random.randint(0, len(author)-1)]
         data["pages"] = page_number()
-        print(data["pages"])
-        # data["Rating"] = rating()
         data["genres"] = []
         genre_count = random.randint(1,len(genres))
         for j in range(1, genre_count):
@@ -42,19 +40,8 @@ def generate_books():
             data["copies"] = 0
         else:
             data["stock"] = True
-            data["copies"] = random.randint(0, 20)
-
-        
-        # data["Reviews"] = []
-        # review_count = rating()
-        # for k in range(0, review_count):
-        #     review = {}
-        #     review["Reviewer"] = author[random.randint(0, len(author)-1)]
-        #     review["Opinion"] = opinion
-        #     data["Reviews"].append(review)
-        
-            
-
+            data["copies"] = random.randint(1, 20)
+    
         bookstore.append(data)
 
     print(bookstore)
