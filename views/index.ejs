@@ -8,7 +8,7 @@
     <ul class="topnav">
         <nav>
             <li id = "logo">
-                <a href="#" class = "logo"><img src = "/images/book.png" height= 60></a>
+                <a href="/" class = "logo"><img src = "/images/book.png" height= 60></a>
 
             </li>
             <li>
@@ -33,6 +33,7 @@
                     <li><a href = "#">Checkout History</a></li>
                 </ul>
             </li>
+
             <li id="search">
                 <form action = "" method = "get">
                     <input type = "text" name = "search-text" id = "search-text" class = "search" placeholder="Search..." required>
@@ -44,7 +45,27 @@
         </nav>
     </ul>
 
-    <% console.log(books) %>
+    <label for="dog-names">Choose a dog name:</label>
+    <select name="dog-names" id="dog-names" onchange="run()">
+        <option value="rigatoni">Rigatoni</option>
+        <option value="dave">Dave</option>
+        <option value="pumpernickel">Pumpernickel</option>
+        <option value="reeses">Reeses</option>
+    </select>
+
+    <script>
+        function run() {
+            var e = document.getElementById("dog-names");
+            var value = e.options[e.selectedIndex].value;
+            var text = e.options[e.selectedIndex].text;
+            
+            console.log(e.options[e.selectedIndex]);
+            console.log(value);
+            console.log(text);
+            return value;
+        }
+    </script>
+
     
     <div id="preview-gallery-container">
         <% books.forEach(book => { %>
@@ -63,5 +84,6 @@
     <div>
         
     </div>
+
 
 </html>

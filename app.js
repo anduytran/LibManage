@@ -18,16 +18,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'));
 
-
-// // Event Schema
-// const eventSchema = new mongoose.Schema({
-//     title: String,
-//     description: String,
-//     image: String,
-//     date: Date,
-//     time: String
-// });
-
 app.get('/', (req, res) => {
     res.redirect('/books')
 })
