@@ -1,0 +1,122 @@
+[
+    {
+        "type": "magazine",
+        "publisher": "Vogue",
+        "year": "2023",
+        "issue": "Spring",
+        "stock": true,
+        "copies": 3
+    },
+    {
+        "type": "magazine",
+        "publisher": "Wired",
+        "year": "2020",
+        "issue": "Spring",
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "magazine",
+        "publisher": "Rolling Stone",
+        "year": "2022",
+        "issue": "Fall",
+        "stock": true,
+        "copies": 6
+    },
+    {
+        "type": "magazine",
+        "publisher": "Wired",
+        "year": "2021",
+        "issue": "Summer",
+        "stock": true,
+        "copies": 8
+    },
+    {
+        "type": "magazine",
+        "publisher": "Time",
+        "year": "2021",
+        "issue": "Spring",
+        "stock": true,
+        "copies": 15
+    },
+    {
+        "type": "magazine",
+        "publisher": "Time",
+        "year": "2021",
+        "issue": "Summer",
+        "stock": true,
+        "copies": 14
+    },
+    {
+        "type": "magazine",
+        "publisher": "Vogue",
+        "year": "2021",
+        "issue": "Summer",
+        "stock": true,
+        "copies": 3
+    },
+    {
+        "type": "magazine",
+        "publisher": "Wired",
+        "year": "2024",
+        "issue": "Winter",
+        "stock": true,
+        "copies": 3
+    },
+    {
+        "type": "magazine",
+        "publisher": "Forbes",
+        "year": "2020",
+        "issue": "Summer",
+        "stock": true,
+        "copies": 5
+    },
+    {
+        "type": "magazine",
+        "publisher": "Vogue",
+        "year": "2022",
+        "issue": "Spring",
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "magazine",
+        "publisher": "Sports Illustrated",
+        "year": "2021",
+        "issue": "Fall",
+        "stock": true,
+        "copies": 17
+    },
+    {
+        "type": "magazine",
+        "publisher": "Wired",
+        "year": "2020",
+        "issue": "Spring",
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "magazine",
+        "publisher": "Vogue",
+        "year": "2023",
+        "issue": "Fall",
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "magazine",
+        "publisher": "Time",
+        "year": "2022",
+        "issue": "Winter",
+        "stock": true,
+        "copies": 11
+    },
+    {
+        "type": "magazine",
+        "publisher": "Rolling Stone",
+        "year": "2023",
+        "issue": "Winter",
+        "stock": false,
+        "copies": 0
+    }
+]

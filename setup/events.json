@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "669405b99cde8f10d9ec7225"
+  },
+  "description": "We're giving away 20 books to every UF student",
+  "image": "https://www.goodfreephotos.com/albums/england/leeds/library-in-leeds-castle.jpg",
+  "date": {
+    "$date": "2018-04-15T00:00:00.000Z"
+  },
+  "time": "12:00 AM",
+  "title": "Free Giveaway"
+},
+{
+  "_id": {
+    "$oid": "66944c789cde8f10d9ec725a"
+  },
+  "description": "super cool event description",
+  "image": "https://www.goodfreephotos.com/albums/other-photos/rooms/big-library-room.jpg",
+  "date": {
+    "$date": "2018-04-15T04:00:00.000Z"
+  },
+  "time": "9:45 PM",
+  "title": "Copa America Final"
+},
+{
+  "_id": {
+    "$oid": "66944c7a9cde8f10d9ec725b"
+  },
+  "description": "We're giving away 20 books to every UF student",
+  "image": "https://www.goodfreephotos.com/albums/united-states/maryland/baltimore/interior-of-john-work-garrett-library-balitmore-maryland.jpg",
+  "date": {
+    "$date": "2018-04-15T00:00:00.000Z"
+  },
+  "time": "12:00 AM",
+  "title": "Free Giveaway"
+},
+{
+  "_id": {
+    "$oid": "669475a5a79807e37e66c377"
+  },
+  "title": "Some cool title",
+  "description": "description",
+  "image": "https://www.publicdomainpictures.net/pictures/80000/velka/library.jpg",
+  "date": {
+    "$date": "2000-01-01T00:00:00.000Z"
+  },
+  "time": "00:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6695a105c3291bfeab54aadd"
+  },
+  "title": "Copa America",
+  "description": "Argentina vs Colombia",
+  "image": "https://www.publicdomainpictures.net/pictures/50000/velka/landscape-1375254437eR0.jpg",
+  "date": {
+    "$date": {
+      "$numberLong": "-61392988800000"
+    }
+  },
+  "time": "21:15",
+  "__v": 0
+}]

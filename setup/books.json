@@ -1,0 +1,219 @@
+[
+    {
+        "type": "book",
+        "title": "A New Hope",
+        "author": "Sabine Wren",
+        "pages": 378,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": true,
+        "copies": 15
+    },
+    {
+        "type": "book",
+        "title": "The Phantom Menace",
+        "author": "Sheev Palpatine",
+        "pages": 427,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "The Empire Strikes Back",
+        "author": "Padme Amidala",
+        "pages": 319,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "The Incredibles",
+        "author": "Qui-Gon Jin",
+        "pages": 386,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": true,
+        "copies": 7
+    },
+    {
+        "type": "book",
+        "title": "Return of the Jedi",
+        "author": "Sheev Palpatine",
+        "pages": 245,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "The Empire Strikes Back",
+        "author": "Darth Maul",
+        "pages": 463,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "Revenge of the Sith",
+        "author": "Mon Mothma",
+        "pages": 437,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 13
+    },
+    {
+        "type": "book",
+        "title": "The Incredibles",
+        "author": "Crosshair",
+        "pages": 479,
+        "genres": [
+            "genre1"
+        ],
+        "stock": true,
+        "copies": 15
+    },
+    {
+        "type": "book",
+        "title": "Revenge of the Sith",
+        "author": "Wrecker",
+        "pages": 358,
+        "genres": [],
+        "stock": true,
+        "copies": 14
+    },
+    {
+        "type": "book",
+        "title": "Return of the Jedi",
+        "author": "Commander Cody",
+        "pages": 283,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "Infinity War",
+        "author": "Hera Syndulla",
+        "pages": 292,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": true,
+        "copies": 4
+    },
+    {
+        "type": "book",
+        "title": "The Empire Strikes Back",
+        "author": "Darth Vader",
+        "pages": 297,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4"
+        ],
+        "stock": true,
+        "copies": 10
+    },
+    {
+        "type": "book",
+        "title": "Revenge of the Sith",
+        "author": "Lord Tyranus",
+        "pages": 221,
+        "genres": [
+            "genre1"
+        ],
+        "stock": true,
+        "copies": 13
+    },
+    {
+        "type": "book",
+        "title": "The Phantom Menace",
+        "author": "Commander Cody",
+        "pages": 408,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6"
+        ],
+        "stock": true,
+        "copies": 7
+    },
+    {
+        "type": "book",
+        "title": "Attack of the Clones",
+        "author": "Grand Admiral Thrawn",
+        "pages": 432,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8",
+            "genre9"
+        ],
+        "stock": true,
+        "copies": 10
+    }
+]

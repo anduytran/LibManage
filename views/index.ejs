@@ -8,17 +8,19 @@
     <ul class="topnav">
         <nav>
             <li id = "logo">
-                <a href="#" class = "logo"><img src = "/images/book.png" height= 60></a>
+                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
 
             </li>
+            
             <li>
                 <a href="/">Books</a>
             </li>
+            
             <li>
                 <a href="/events">Events</a>
             </li>
             
-            <li id = "search-by">
+            <!-- <li id = "search-by">
                 <a href= "#">Search By</a>
                 <ul class = "subnav">
                     <li><a href = "#">Title</a></li>
@@ -26,42 +28,53 @@
                     <li><a href = "#">Author</a></li>
                     <li><a href = "#">Location</a></li>
                     <li><a href = "#">Description</a></li>
-                    <li><a href = "#"># of Copies</a></li>
                     <li><a href = "#">Versions</a></li>
                     <li><a href = "#">Type of Resource</a></li>
                     <li><a href = "#">Availability</a></li>
                     <li><a href = "#">Checkout History</a></li>
                 </ul>
-            </li>
+            </li> -->
+
             <li id="search">
-                <form action = "" method = "get">
-                    <input type = "text" name = "search-text" id = "search-text" class = "search" placeholder="Search..." required>
-                    <button type = "button" class = "submit" name="search-button" id="search-button"></button>
+                <form action="/books/search" method="get">
+                    <select name="search-filter" id="search-filter">
+                        <option value="title">Title</option>
+                        <option value="genre">Genre</option>
+                        <option value="author">Author</option>
+                        <option value="publisher">Publisher</option>
+                        <option value="stock">Stock</option>
+                    </select>
+
+                    <input type="text" name="search-text" id="search-text" class="search" placeholder="search">
+                    <button type="button" class="submit" name="search-button" id="search-button"></button>
                 </form>
             </li>
+
             <button onclick="window.location.href='/login'">Log In</button>
-            <button class = "register" onclick="window.location.href='/signup'">Sign Up</button>
+            <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
         </nav>
     </ul>
 
-    <% console.log(books) %>
-    
+   
     <div id="preview-gallery-container">
-        <% books.forEach(book => { %>
-            <div class = "preview-gallery"> 
-                <a target="_blank" href = "/images/images.jpeg"> 
-                    <img src="/images/images.jpeg" alt = "Book" width = "180" height="276"> 
-                </a> 
-                <div class="title">Title: <%= book.title %></div> 
-                <div class="author">Author: <%= book.author %></div>
-                <div class="copies">Copies: <%= book.copies %></div> 
-            </div>
-    
+        <% resources.forEach(resource => { %>
+            <% if (resource.type == "book") { %>
+                <div class = "preview-gallery"> 
+                    <img src="/images/book.jpeg" alt="Book" width="180" height="276"> 
+
+                    <div class="title">Title: <%= resource.title %></div> 
+                    <div class="author">Author: <%= resource.author %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div> 
+                </div>            
+            <% } else if (resource.type == "magazine") { %>
+                <div class = "preview-gallery"> 
+                    <img src="/images/magazine.jpg" alt="Book" width="180" height="276"> 
+
+                    <div class="publisher">Publisher: <%= resource.publisher %></div> 
+                    <div class="issue">Issue: <%= resource.issue %>, <%= resource.year %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div>
+                </div>             
+            <% } %>
         <% }) %>
     </div>
-
-    <div>
-        
-    </div>
-
 </html>
