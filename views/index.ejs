@@ -8,7 +8,7 @@
     <ul class="topnav">
         <nav>
             <li id = "logo">
-                <a href="/" class = "logo"><img src = "/images/book.png" height= 60></a>
+                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
 
             </li>
             
@@ -56,17 +56,30 @@
 
    
     <div id="preview-gallery-container">
-        <% books.forEach(book => { %>
-            <div class = "preview-gallery"> 
-                <a target="_blank" href = "/images/images.jpeg"> 
-                    <img src="/images/images.jpeg" alt = "Book" width = "180" height="276"> 
-                </a> 
-                <div class="title">Title: <%= book.title %></div> 
-                <div class="author">Author: <%= book.author %></div>
-                <div class="copies">Copies: <%= book.copies %></div> 
-            </div>
-        <% }) %>
-        
-    </div>
+        <% resources.forEach(resource => { %>
+            <% if (resource.type == "book") { %>
+                <div class = "preview-gallery"> 
+                    <img src="/images/book.jpeg" alt="Book" width="180" height="276"> 
 
+                    <div class="title">Title: <%= resource.title %></div> 
+                    <div class="author">Author: <%= resource.author %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div> 
+                </div>
+            
+            
+            <% } else if (resource.type == "magazine") { %>
+                <div class = "preview-gallery"> 
+                    <img src="/images/magazine.jpg" alt="Book" width="180" height="276"> 
+
+                    <div class="publisher">Publisher: <%= resource.publisher %></div> 
+                    <div class="year">Year: <%= resource.year %></div>
+                    <div class="issue">Issue: <%= resource.issue %></div> 
+                </div>             
+            <% } %>
+
+        <% }) %>
+
+
+	
+    </div>
 </html>

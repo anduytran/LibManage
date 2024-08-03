@@ -1,0 +1,32 @@
+[
+    {
+        "type": "magazine",
+        "publisher": "Wired",
+        "year": "2022",
+        "issue": "Summer"
+    },
+    {
+        "type": "magazine",
+        "publisher": "Forbes",
+        "year": "2022",
+        "issue": "Summer"
+    },
+    {
+        "type": "magazine",
+        "publisher": "National Geographic",
+        "year": "2022",
+        "issue": "Spring"
+    },
+    {
+        "type": "magazine",
+        "publisher": "Vogue",
+        "year": "2021",
+        "issue": "Winter"
+    },
+    {
+        "type": "magazine",
+        "publisher": "The New Yorker",
+        "year": "2022",
+        "issue": "Winter"
+    }
+]

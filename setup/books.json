@@ -1,0 +1,76 @@
+[
+    {
+        "type": "book",
+        "title": "A New Hope",
+        "author": "Qui-Gon Jin",
+        "pages": 481,
+        "genres": [],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "The Phantom Menace",
+        "author": "Asajj Ventress",
+        "pages": 480,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7",
+            "genre8",
+            "genre9"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "The Empire Strikes Back",
+        "author": "Captain Rex",
+        "pages": 219,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "Infinity War",
+        "author": "Leia Organa",
+        "pages": 484,
+        "genres": [
+            "genre1",
+            "genre2"
+        ],
+        "stock": false,
+        "copies": 0
+    },
+    {
+        "type": "book",
+        "title": "The Empire Strikes Back",
+        "author": "Ezra Bridger",
+        "pages": 451,
+        "genres": [
+            "genre1",
+            "genre2",
+            "genre3",
+            "genre4",
+            "genre5",
+            "genre6",
+            "genre7"
+        ],
+        "stock": true,
+        "copies": 20
+    }
+]

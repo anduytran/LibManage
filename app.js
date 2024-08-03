@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require ('mongoose');
 const morgan = require('morgan');
-const Book = require('./models/book');
+const Resource = require('./models/resource');
+
 const Event = require('./models/event');
 
 const app = express();
@@ -24,10 +25,20 @@ app.get('/', (req, res) => {
     res.redirect('/books')
 })
 
+// app.get('/books', (req, res) => {
+//     Book.find().sort({ createdAt: -1 })
+//         .then(result => {
+//             res.render('index', { books: result });
+//         })
+//         .catch(err => {
+//             console.log(err);
+//         });
+// });
+
 app.get('/books', (req, res) => {
-    Book.find().sort({ createdAt: -1 })
+    Resource.find().sort({ createdAt: -1 })
         .then(result => {
-            res.render('index', { books: result });
+            res.render('index', { resources: result });
         })
         .catch(err => {
             console.log(err);

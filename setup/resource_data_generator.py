@@ -53,24 +53,30 @@ def generate_magazines(magazine_count, resources):
         
         resources.append(magazine)
 
-def write_data(resources):
-    # Serializing json
-    json_object = json.dumps(resources, indent=4)
-    
-    # Writing to sample.json
-    with open("data2.json", "w") as outfile:
+def write_magazines(magazine_data):
+    json_object = json.dumps(magazine_data, indent=4)
+        
+    with open("magazines.json", "w") as outfile:
         outfile.write(json_object)
 
+def write_books(book_data):
+    json_object = json.dumps(book_data, indent=4)
+    
+    with open("books.json", "w") as outfile:
+        outfile.write(json_object)
 
 
 if __name__ == "__main__":
     data = []
-
     book_count = int(input("How many books?\t\t"))    
     magazine_count = int(input("How many magazines?\t"))
 
     generate_books(book_count, data)
+    write_books(data)
+    data = []
+
     generate_magazines(magazine_count, data)
+    write_magazines(data)
     
 
-    write_data(data)
+    

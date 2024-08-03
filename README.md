@@ -79,7 +79,8 @@ You are tasked with developing an inventory and checkout system for a library.
 * _By: [Mongo Docs](https://www.mongodb.com/try/download/compass)_
 
 ## Populating the Database
-* Use the provided [books.json](./setup/books.json) to import to the database's _books_ collection.
+* Use the provided [books.json](./setup/books.json) to import to the database's _resources_ collection.
+* Use the provided [magazines.json](./setup/magazines.json) to import to the database's _resources_ collection.
 * Use the provided [events.json](./setup/events.json) to import to the database's _events_ collection.
 
 
