@@ -54,42 +54,52 @@ app.get('/books/search/', (req, res) => {
     let searchInput = req.query["search-text"]
 
     if (filter == "author") {
-        Book.find({ "author": { "$regex": searchInput, "$options": 'i' } })
+        Resource.find({ "author": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
-            res.render('index', { books: result });
+            res.render('index', { resources: result });
         })
         .catch(err => {
             console.log(err);
       });
     }
     else if (filter == "title") {
-        Book.find({ "title": { "$regex": searchInput, "$options": 'i' } })
+        Resource.find({ "title": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
-            res.render('index', { books: result });
+            res.render('index', { resources: result });
         })
         .catch(err => {
             console.log(err);
       });
     }
     else if (filter == "genre") {
-        Book.find({ "genres": { "$regex": searchInput, "$options": 'i' } })
+        Resource.find({ "genres": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
-            res.render('index', { books: result });
+            res.render('index', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+    }
+    else if (filter == "publisher") {
+        Resource.find({ "publisher": { "$regex": searchInput, "$options": 'i' } }).sort({ year: 1 })
+        .then(result => {
+            res.render('index', { resources: result });
         })
         .catch(err => {
             console.log(err);
       });
     }
     else if (filter == "stock") {
-        Book.find({ "stock": true })
+        Resource.find({ "stock": true })
         .then(result => {
-            res.render('index', { books: result });
+            res.render('index', { resources: result });
         })
         .catch(err => {
             console.log(err);
-      });
+        });
     }
 });
+
 
 app.get('/login', (req, res) => {
     res.render('login');

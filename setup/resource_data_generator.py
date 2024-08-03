@@ -51,6 +51,13 @@ def generate_magazines(magazine_count, resources):
         magazine["year"] = years[random.randint(0, len(years)-1)]
         magazine["issue"] = issues[random.randint(0, len(issues)-1)]
         
+        if (random.randint(0, 1) == 0):
+            magazine["stock"] = False
+            magazine["copies"] = 0
+        else:
+            magazine["stock"] = True
+            magazine["copies"] = random.randint(1, 20)
+        
         resources.append(magazine)
 
 def write_magazines(magazine_data):
