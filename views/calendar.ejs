@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
+        <title>ManageLib | Calendar</title>
+        <link rel="stylesheet" href="/calendarStyle.css">
+    </head>
+    <ul class="topnav">
+        <nav>
+            <li id = "logo">
+                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
+            </li>
+
+            <li>
+                <a href="/">Books</a>
+            </li>
+            <li>
+                <a href="/events">Events</a>
+            </li>
+
+            <a href="/calendar">Calendar</a>
+            <button onclick="window.location.href='/login'">Log In</button>
+            <button class = "register" onclick="window.location.href='/signup'">Sign Up</button>
+        </nav>
+    </ul>
+
+    <div class = "Calendar">
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body"></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const calendarBody = document.getElementById('calendar-body');
+
+        function generateCalendar(year, month) {
+            calendarBody.innerHTML = '';
+            const date = new Date(year, month - 1, 1);
+            const daysInMonth = new Date(year, month, 0).getDate();
+            const firstDay = date.getDay();
+
+            let row = document.createElement('tr');
+            for (let i = 0; i < firstDay; i++) {
+                let cell = document.createElement('td');
+                row.appendChild(cell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                if (row.children.length === 7) {
+                    calendarBody.appendChild(row);
+                    row = document.createElement('tr');
+                }
+                let cell = document.createElement('td');
+                cell.innerText = day;
+                row.appendChild(cell);
+            }
+            
+            while (row.children.length < 7) {
+                let cell = document.createElement('td');
+                row.appendChild(cell);
+            }
+            calendarBody.appendChild(row);
+        }
+        generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
+    });
+    </script>
+</html>
