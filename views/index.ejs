@@ -9,7 +9,6 @@
         <nav>
             <li id = "logo">
                 <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
-
             </li>
             
             <li>
@@ -19,21 +18,8 @@
             <li>
                 <a href="/events">Events</a>
             </li>
-            
-            <!-- <li id = "search-by">
-                <a href= "#">Search By</a>
-                <ul class = "subnav">
-                    <li><a href = "#">Title</a></li>
-                    <li><a href = "#">Genre</a></li>
-                    <li><a href = "#">Author</a></li>
-                    <li><a href = "#">Location</a></li>
-                    <li><a href = "#">Description</a></li>
-                    <li><a href = "#">Versions</a></li>
-                    <li><a href = "#">Type of Resource</a></li>
-                    <li><a href = "#">Availability</a></li>
-                    <li><a href = "#">Checkout History</a></li>
-                </ul>
-            </li> -->
+
+            <a href="/calendar">Calendar</a>
 
             <li id="search">
                 <form action="/books/search" method="get">
@@ -46,10 +32,8 @@
                     </select>
 
                     <input type="text" name="search-text" id="search-text" class="search" placeholder="search">
-                    <button type="button" class="submit" name="search-button" id="search-button"></button>
                 </form>
             </li>
-
             <button onclick="window.location.href='/login'">Log In</button>
             <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
         </nav>

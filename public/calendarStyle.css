@@ -60,26 +60,6 @@ nav li{
 nav li:hover{
     cursor: pointer;
 }
-#search{
-    width: 357 px;
-    margin: 4px;
-}
-#search-text{
-    width: 297px;
-    font-size: 16px;
-    border:5 #dfddd9;
-    border-radius: 2px;
-    height: 52px;
-    margin-right: 0;
-    color:#000000;
-    outline: none;
-    background: transparent;
-    float: left;
-    transition: all 0.2s;
-}
-#search-text:focus{
-    background-color: #d7d4ce;
-}
 .register{
     background-color: #f29d15;
     float: inline-end;
@@ -87,12 +67,6 @@ nav li:hover{
 }
 .register:hover{
     background-color: #d08714;
-}
-nav form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
 }
 nav button, input[type=text]{
     width: 100%;
@@ -110,4 +84,30 @@ nav input[type=text]{
     display:inline-block;
     flex-direction: column;
     width: auto;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 35px 0;
+}
+
+.calendar th, .calendar td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+    height: 100px;
+    width: 14.2857143%;
+}
+
+.calendar th {
+    background-color: #edebe7;
+    font-weight: bold;
+}
+
+.calendar td:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
 }

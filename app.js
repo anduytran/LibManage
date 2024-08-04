@@ -127,6 +127,10 @@ app.post('/signup', (req, res) => {
     // Handle signup logic
 });
 
+app.get('/calendar', (req, res) => {
+    res.render('calendar');
+});
+
 app.get('/add-event', (req, res) => {
     res.render('eventCreate');
 });
