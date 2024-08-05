@@ -29,20 +29,20 @@ app.use(cookieParser());
 app.get('*', checkUser);
 
 app.get('/', (req, res) => {
-    res.redirect('/books')
+    res.redirect('/home')
 })
 
-app.get('/books', (req, res) => {
+app.get('/home', (req, res) => {
     Resource.find().sort({ createdAt: -1 })
         .then(result => {
-            res.render('index', { resources: result });
+            res.render('home', { resources: result });
         })
         .catch(err => {
             console.log(err);
         });
 });
 
-app.get('/books/search/', (req, res) => {
+app.get('/home/search/', (req, res) => {
     console.log(req.query)
     console.log(req.query["search-filter"])
     console.log(req.query["search-text"])
@@ -53,7 +53,7 @@ app.get('/books/search/', (req, res) => {
     if (filter == "author") {
         Resource.find({ "author": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
-            res.render('index', { resources: result });
+            res.render('home', { resources: result });
         })
         .catch(err => {
             console.log(err);
@@ -62,7 +62,7 @@ app.get('/books/search/', (req, res) => {
     else if (filter == "title") {
         Resource.find({ "title": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
-            res.render('index', { resources: result });
+            res.render('home', { resources: result });
         })
         .catch(err => {
             console.log(err);
@@ -71,7 +71,7 @@ app.get('/books/search/', (req, res) => {
     else if (filter == "genre") {
         Resource.find({ "genres": { "$regex": searchInput, "$options": 'i' } })
         .then(result => {
-            res.render('index', { resources: result });
+            res.render('home', { resources: result });
         })
         .catch(err => {
             console.log(err);
@@ -80,7 +80,7 @@ app.get('/books/search/', (req, res) => {
     else if (filter == "publisher") {
         Resource.find({ "publisher": { "$regex": searchInput, "$options": 'i' } }).sort({ year: 1 })
         .then(result => {
-            res.render('index', { resources: result });
+            res.render('home', { resources: result });
         })
         .catch(err => {
             console.log(err);
@@ -89,42 +89,13 @@ app.get('/books/search/', (req, res) => {
     else if (filter == "stock") {
         Resource.find({ "stock": true })
         .then(result => {
-            res.render('index', { resources: result });
+            res.render('home', { resources: result });
         })
         .catch(err => {
             console.log(err);
         });
     }
 });
-
-
-// app.get('/login', (req, res) => {
-//     res.render('login');
-// });
-
-// app.get('/signup', (req, res) => {
-//     res.render('signup');
-// });
-
-// app.post('/signup', async (req, res) => {
-//     const { name, email, password } = req.body;
-
-//     try {
-//         const user = await User.create({ email, password });
-//         res.status(201).json(user);
-//     }
-//     catch(err) {
-//         const errors = handleErrors(err);
-//         res.status(400).json({ errors });
-//     }
-// });
-
-// app.post('/login', async (req, res) => {
-//     const { email, password } = req.body;
-
-//     console.log(email, password);
-//     res.send("login from the server")
-// });
 
 
 
