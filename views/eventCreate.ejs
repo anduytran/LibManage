@@ -3,25 +3,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Creation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="/add-event" method="POST">
-        <label for="title">Event Title</label><br>
-        <input type="text" id='title' name="title" required>
-        <br><br>
-        <label for="description">Event Description</label><br>        
-        <textarea id="description" name="description"></textarea>
-        <br><br>
-        <label for="body">Date</label><br>
-        <input type="date" id="date" name="date" required></input>
-        <br><br>
-        <label for="time">Time</label><br>
-        <input type="time" id="time" name="time" required></input>
-        <br><br>
-        <label for="image">Image Link</label><br>
-        <input type="text" id="image" name="image" required></input>
-        <br><br>
-        <button>Submit</button>
-    </form>
+    <ul class="topnav">
+        <nav>
+            <li id = "logo">
+                <a href="/books" class = "logo"><img src = "/images/book.png" height= 60></a>
+
+            </li>
+            <li>
+                <a href="/">Books</a>
+            </li>
+            <li>
+                <a href="/events">Events</a>
+            </li>
+        </nav>
+    </ul>
+    <div class="event-container">
+        <h2>Event Creation</h2>
+        <form action="/add-event" method="POST">
+            <label for="title">Event Title</label><br>
+            <input type="text" id='title' name="title" required>
+            <br><br>
+            <label for="description">Event Description</label><br>        
+            <textarea id="description" name="description"></textarea>
+            <br><br>
+            <label for="body">Date</label><br>
+            <input type="date" id="date" name="date" required></input>
+            <br><br>
+            <label for="time">Time</label><br>
+            <input type="time" id="time" name="time" required></input>
+            <br><br>
+            <label for="image">Image Link</label><br>
+            <input type="text" id="image" name="image" required></input>
+            <br><br>
+            <button>Submit</button>
+        </form>
+    </div>
 </body>
 </html>

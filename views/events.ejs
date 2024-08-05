@@ -3,25 +3,41 @@
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
         <title>ManageLib</title>
-        <link rel="stylesheet" href="eventsStyle.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <div class="topnav">
+    <ul class="topnav">
         <nav>
-            <a href="/" class = "logo"><img src = "images/book.png" height= 60></a>
-            <a href="/">Books</a>
-            <a href="/events">Events</a>
-            <button class="dropdown">Genre</button>
-            <form>
-                <input class="search" placeholder="Search..." required>
-                <button type="submit" class="submit"></button>
-            </form>
-            <button onclick="window.location.href='/login'">Log In</button>
-            <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
-        </nav>
-    </div>
+            <li id = "logo">
+                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
 
-    <div class="container">
+            </li>
+            <li>
+                <a href="/">Books</a>
+            </li>
+            <li>
+                <a href="/events">Events</a>
+            </li>
+            
+            <li id="search">
+                <form action="/books/search" method="get">
+                    <select name="search-filter" id="search-filter">
+                        <option value="title">Title</option>
+                        <option value="genre">Genre</option>
+                        <option value="author">Author</option>
+                        <option value="publisher">Publisher</option>
+                        <option value="stock">Stock</option>
+                    </select>
+
+                    <input type="text" name="search-text" id="search-text" class="search" placeholder="search">
+                    <button type="button" class="submit" name="search-button" id="search-button"></button>
+                </form>
+            </li>
+            <button class = "login" onclick="window.location.href='/login'">Log In</button>
+        </nav>
+    </ul>
+
+    <div>
         <h2>Upcoming Events</h2>
         
         <div id="preview-gallery-container">
