@@ -262,3 +262,57 @@ h2 {
     color: #666;
     margin-bottom: 5px;
 }
+.container {
+	width: 25%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background: #fcf9f3;
+	border: solid;
+	border-width: 1px;
+	border-color: gray;
+	border-radius: 10px;
+}
+
+.event-container {
+	width: 25%;
+	padding: 2%;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background: #fcf9f3;
+	border: solid;
+	border-width: 1px;
+	border-color: gray;
+	border-radius: 10px;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+select {
+	border: none;
+	background-color: #dfddd9;
+	font-size: 16px;
+	padding: 14px 16px;
+	margin-right: 35px;
+}
+select:hover {
+	background-color: #c6c5c1;
+}
+
+option {
+    font-size: 16px;
+    background-color: #dfddd9;
+}
+
+#eventTitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
