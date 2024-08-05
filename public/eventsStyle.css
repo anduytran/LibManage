@@ -194,16 +194,29 @@ h2 {
     margin: 5px 0;
 }
 .preview-gallery {
-    width: 500px; /* Fixed width */
-    height: 300px; /* Height adjusts based on content */
-    margin: 20px; /* Consistent margin */
-    display: inline-block; /* Aligns items side by side */
+    position: relative;  /* Essential for positioning children absolutely */
+    width: 500px;        /* Fixed width */
+    height: 300px;       /* Fixed height for consistency */
+    margin: 20px;        /* Consistent margin */
+    display: inline-block;/* Aligns items side by side */
     vertical-align: top; /* Aligns items at their top edge */
-    overflow: hidden; /* Keeps content within bounds */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    overflow: hidden;    /* Keeps content within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds shadow for better visibility */
 }
+
 .preview-gallery img {
-    width: 100%; /* Makes image width responsive to container width */
-    height: 230px; /* Maintains aspect ratio */
-    display: block; /* Removes bottom gap/line */
+    width: 100%;         /* Makes image width responsive to container width */
+    height: 230px;       /* Height adjusted to allow space for button */
+    display: block;      /* Removes bottom gap/line */
+}
+
+.preview-gallery button {
+    position: absolute;  /* Absolute positioning within the .preview-gallery */
+    top: 10px;           /* Positioned 10px from the top */
+    right: 10px;         /* Positioned 10px from the right */
+    padding: 8px 16px;   /* Padding inside the button */
+    background-color: #007BFF; /* Example blue background */
+    color: white;        /* White text color */
+    border: none;        /* No border */
+    cursor: pointer;     /* Cursor indicates button */
 }
