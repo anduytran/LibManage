@@ -9,6 +9,8 @@ body{
     background: #edebe7;
     color: #000;
 }
+
+/* [-----BEGIN NAVIGATION BAR-----] */
 .logo{
     width: 200px;
     cursor:pointer;
@@ -25,6 +27,17 @@ nav{
     align-items: center;
     padding: 10px 25px;
 }
+nav li{
+    float: left;
+    list-style-type: none;
+    position: relative;
+    align-items: center;
+    border: none;
+    padding: 10px 20px;
+}
+nav li:hover{
+    cursor: pointer;
+}
 nav a{
     cursor:pointer;
     display: inline-block;
@@ -37,66 +50,10 @@ nav a{
 nav a:hover{
     background-color: #c6c5c1;
 }
-nav button{
-    cursor:pointer;
-    border: 0;
-    outline: 0;
-    font-size: 16px;
-    border-radius: 8px;
-    background-color: transparent;
-    color: #000000;
+.tabs {
+    border-radius: 15px;
 }
-nav button:hover{
-    background-color: #c6c5c1;
-}
-nav li{
-    float: left;
-    list-style-type: none;
-    position: relative;
-    align-items: center;
-    border: none;
-    padding: 10px 20px;
-}
-nav li:hover{
-    cursor: pointer;
-}
-#search-by a{
-    border-left: 0 none;
-    background-image: url(images/down-arrow.png);
-    background-size: 15px;
-    background-position: 100% center;
-    background-repeat: no-repeat;
-    padding-right: 42px;
-}
-.subnav{
-    z-index: 1000;
-    visibility: hidden;
-    position:absolute;
-    overflow-y: scroll;
-    top:110%;
-    right:0%;
-    width: 200px;
-    height: auto;
-    opacity: 0;
-    transition: all 0.1s;
-    background: #dfddd9;
-}
-.subnav li{
-    float:none;
-}
-.subnav li a{
-    background: #dfddd9;
-    border-bottom: 1px solid #2e2e2e;
-}
-#search-by:hover .subnav{
-    visibility: visible;
-    top: 100%;
-    opacity: 1;
-}
-#search{
-    width: 357 px;
-    margin: 4px;
-}
+
 #search-text{
     width: 297px;
     font-size: 16px;
@@ -109,37 +66,10 @@ nav li:hover{
     background: transparent;
     float: left;
     transition: all 0.2s;
+    border-radius: 15px;
 }
 #search-text:focus{
     background-color: #d7d4ce;
-}
-#search-button{
-    border: 0 none;
-    background: url(images/search-icon.png) center no-repeat;
-    background-size: 30px;
-    padding: 0;
-    height: 52px;
-    cursor:pointer;
-}
-.register{
-    background-color: #f29d15;
-    float: inline-end;
-    color: #ffffff;
-}
-.register:hover{
-    background-color: #d08714;
-}
-.signup {
-	background-color: #f29d15;
-	width: 10%;
-	right: 10px;
-	color: #ffffff;
-	float: left;
-	position: float;
-}
-
-.signup:hover {
-	background-color: #d08714;
 }
 
 nav form{
@@ -156,27 +86,65 @@ nav button, input[type=text]{
 nav input[type=text]{
     border: 1px solid #ccc;
 }
+nav button{
+    cursor:pointer;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #000000;
+    padding: 14px;
+}
+nav button:hover{
+    background-color: #c6c5c1;
+}
 .login {
 	background-color: #f29d15;
 	width: 10%;
 	right: 10px;
 	color: #ffffff;
-	float: start;
-	position: absolute;
+	position: float;
+    margin-left: 7px;
+    margin-right: 50px;
+    font-weight: bold;
 }
-
 .login:hover {
 	background-color: #d08714;
 }
-.preview-gallery{
-    margin-top: 3%;
-    margin-left: 10%;
-    margin-bottom: 3%;
-    overflow: auto;
-    display:inline-block;
-    flex-direction: column;
-    width: auto;
+.signup {
+	background-color: #f29d15;
+	width: 10%;
+	right: 10px;
+	color: #ffffff;
+	position: float;
+    margin-left: auto;
+    margin-right: 10px;
+    font-weight: bold;
 }
+
+.signup:hover {
+	background-color: #d08714;
+}
+.greeting {
+    margin-left:auto
+}
+.logout {
+	background-color: #f29d15;
+	width: 10%;
+	right: 10px;
+	color: #ffffff;
+	position: float;
+    margin-left: 7px;
+    margin-right: 50px;
+    font-weight: bold;
+}
+.logout:hover {
+	background-color: #d08714;
+}
+
+/* [-----END NAVIGATION BAR-----] */
+
 .container {
     max-width: 1000px;
     margin: 50px auto;
@@ -226,11 +194,13 @@ h2 {
 }
 
 .preview-gallery {
+    margin-top: 3%;
+    margin-left: 5%;  
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     width: 350px;
+    align-content: center;
 }
 
 .preview-gallery:hover {
