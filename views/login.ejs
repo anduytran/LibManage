@@ -2,17 +2,20 @@
 <html>
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
-        <title>ManageLib</title>
-        <link rel="stylesheet" href="style.css">
+        <title>ManageLib | Login</title>
+        <link rel="stylesheet" href="loginStyle.css">
     </head>
 <body>
-        <ul class="topnav">
+    <div class="topnav">
         <nav>
-            <li id = "logo">
-                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
-            </li>
+            <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
+            <a href="/">Books</a>
+            <a href="/events">Events</a>
+            <a href="/calendar">Calendar</a>
+            <button onclick="window.location.href='/login'">Log In</button>
+            <button class = "register" onclick="window.location.href='/signup'">Sign Up</button>
         </nav>
-    </ul>
+    </div>
     <div class="container">
         <h2>Login</h2>
         <form action="/login" method="POST">

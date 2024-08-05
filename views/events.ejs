@@ -3,32 +3,23 @@
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
         <title>ManageLib | Events</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="eventsStyle.css">
     </head>
 <body>
-    <ul class="topnav">
+    <div class="topnav">
         <nav>
-            <li id = "logo">
-                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
-
-            </li>
-            <li>
-                <a href="/">Books</a>
-            </li>
-            <li>
-                <a href="/events">Events</a>
-            </li>
-
+            <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
+            <a href="/">Books</a>
+            <a href="/events">Events</a>
             <a href="/calendar">Calendar</a>
-
-            <button class = "login" onclick="window.location.href='/login'">Log In</button>
+            <button onclick="window.location.href='/login'">Log In</button>
+            <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
         </nav>
-    </ul>
+    </div>
 
-    <div>
-        <div id="eventTitle">
-            <h2>Upcoming Events</h2>
-        </div>
+    <div class="container">
+        <h2>Upcoming Events</h2>
+        
         <div id="preview-gallery-container">
             <% events.forEach(event => { %>
                 <div class = "preview-gallery"> 
