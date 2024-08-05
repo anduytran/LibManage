@@ -3,6 +3,8 @@ const mongoose = require ('mongoose');
 const morgan = require('morgan');
 const Resource = require('./models/resource');
 const Event = require('./models/event');
+const authRoutes = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser')
 
 const app = express();
 
@@ -14,8 +16,13 @@ mongoose.connect(dbURI)
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+app.use(express.json());
+app.use(cookieParser());
+
+
+
 
 // [----- Routes -----]
 app.get('/', (req, res) => {
@@ -88,13 +95,35 @@ app.get('/books/search/', (req, res) => {
 });
 
 
-app.get('/login', (req, res) => {
-    res.render('login');
-});
+// app.get('/login', (req, res) => {
+//     res.render('login');
+// });
 
-app.get('/signup', (req, res) => {
-    res.render('signup');
-});
+// app.get('/signup', (req, res) => {
+//     res.render('signup');
+// });
+
+// app.post('/signup', async (req, res) => {
+//     const { name, email, password } = req.body;
+
+//     try {
+//         const user = await User.create({ email, password });
+//         res.status(201).json(user);
+//     }
+//     catch(err) {
+//         const errors = handleErrors(err);
+//         res.status(400).json({ errors });
+//     }
+// });
+
+// app.post('/login', async (req, res) => {
+//     const { email, password } = req.body;
+
+//     console.log(email, password);
+//     res.send("login from the server")
+// });
+
+
 
 app.get('/events', async (req, res) => {
     Event.find().sort({ createdAt: -1 })
@@ -104,14 +133,6 @@ app.get('/events', async (req, res) => {
         .catch(err => {
             console.log(err);
         });
-});
-
-app.post('/login', (req, res) => {
-    // Handle login logic
-});
-
-app.post('/signup', (req, res) => {
-    // Handle signup logic
 });
 
 app.get('/calendar', (req, res) => {
@@ -128,6 +149,29 @@ app.post('/add-event', (req, res) => {
     newEvent.save();
     res.redirect('/events');
 });
+app.use(authRoutes);
+
+
+app.get('/set-cookies', (req,res) => {
+
+    // res.setHeader('Set-Cookie', 'newUser=true');
+    res.cookie('newUser', false);
+    res.cookie('isEmployee', true);
+
+    res.send('you got a cookie')
+
+})
+
+app.get('/gett-cookies', (req,res) => {
+
+    // res.setHeader('Set-Cookie', 'newUser=true');
+    const cookies = req.cookies;
+    console.log(cookies.newUser)
+
+    res.send('you got a cookie')
+
+})
+
 
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });

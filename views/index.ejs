@@ -42,22 +42,26 @@
     <div id="preview-gallery-container">
         <% resources.forEach(resource => { %>
             <% if (resource.type == "book") { %>
+                
                 <div class = "preview-gallery"> 
                     <img src="/images/book.jpeg" alt="Book" width="180" height="276"> 
 
                     <div class="title">Title: <%= resource.title %></div> 
                     <div class="author">Author: <%= resource.author %></div>
                     <div class="copies">Copies: <%= resource.copies %></div> 
-                </div>            
+                </div>  
+
             <% } else if (resource.type == "magazine") { %>
-                <div class = "preview-gallery"> 
+                
+                <div class = "preview-gallery">
                     <img src="/images/magazine.jpg" alt="Book" width="180" height="276"> 
 
                     <div class="publisher">Publisher: <%= resource.publisher %></div> 
                     <div class="issue">Issue: <%= resource.issue %>, <%= resource.year %></div>
                     <div class="copies">Copies: <%= resource.copies %></div>
-                </div>             
+                </div>   
+
             <% } %>
         <% }) %>
-    </div>
+    </div>2
 </html>
