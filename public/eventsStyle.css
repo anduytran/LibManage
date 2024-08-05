@@ -153,7 +153,7 @@ nav input[type=text]{
     width: auto;
 }
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
     background: #fff;
@@ -192,4 +192,18 @@ h2 {
 }
 .event-details p {
     margin: 5px 0;
+}
+.preview-gallery {
+    width: 500px; /* Fixed width */
+    height: 300px; /* Height adjusts based on content */
+    margin: 20px; /* Consistent margin */
+    display: inline-block; /* Aligns items side by side */
+    vertical-align: top; /* Aligns items at their top edge */
+    overflow: hidden; /* Keeps content within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+}
+.preview-gallery img {
+    width: 100%; /* Makes image width responsive to container width */
+    height: 230px; /* Maintains aspect ratio */
+    display: block; /* Removes bottom gap/line */
 }
