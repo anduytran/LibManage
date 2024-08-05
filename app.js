@@ -5,6 +5,7 @@ const Resource = require('./models/resource');
 const Event = require('./models/event');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser')
+const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 
 const app = express();
 
@@ -25,6 +26,8 @@ app.use(cookieParser());
 
 
 // [----- Routes -----]
+app.get('*', checkUser);
+
 app.get('/', (req, res) => {
     res.redirect('/books')
 })
@@ -151,6 +154,11 @@ app.post('/add-event', (req, res) => {
 });
 app.use(authRoutes);
 
+
+
+app.get('/employees', requireAuth, (req, res) => res.render('employees'))
+
+app.get('/logout', (req, res) => res.render('logout'))
 
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });

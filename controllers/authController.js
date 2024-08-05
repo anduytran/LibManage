@@ -6,6 +6,16 @@ const handleErrors = (err) => {
         console.log(err.message, err.code);
         let errors = { email: '', password: '' };
     
+        // incorrect email
+        if (err.message === "incorrect email") {
+            errors.email = "That email is not registered"
+        }
+
+        // incorrect password
+        if (err.message === "incorrect password") {
+            errors.password = "That password is incorrect"
+        }
+
         // duplicate email error
         if (err.code === 11000) {
         errors.email = 'that email is already registered';
@@ -22,6 +32,7 @@ const handleErrors = (err) => {
         return errors;
 }
 // PRETTY PLEASE, GET THIS SECRET STRING OUT OF THERE BEFORE ANYONE SEES THIS
+// id in this case is the content of the signed cookie
 const createToken = (id) => {
     return jwt.sign({ id }, 'lib-manage secret', {
         expiresIn: 1800
@@ -42,10 +53,7 @@ module.exports.signup_post = async (req, res) => {
     try {
         const user = await User.create({ email, password });
         const token = createToken(user._id);
-        res.cookie('jwt', token, {
-            httpOnly: true,
-            maxAge: 1800 * 1000
-        });
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 1800 * 1000 });
         res.status(201).json({ user:user._id });
     }
     catch(err) {
@@ -60,10 +68,19 @@ module.exports.login_post = async (req, res) => {
   
     try {
         const user = await User.login(email, password);
-        res.status(200).json({ user: user.d_id })
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 1800 * 1000 });
+        
+        res.status(200).redirect('/books');
+        // .json({ user: user.d_id })
     }
     catch (err) {
-        res.status(404).json({})
+        const errors = handleErrors(err);
+        res.status(404).json({ errors })
     }
 }
 
+module.exports.logout_get = (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1 })
+    res.redirect('/books');
+}
