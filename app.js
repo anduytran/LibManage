@@ -152,27 +152,6 @@ app.post('/add-event', (req, res) => {
 app.use(authRoutes);
 
 
-app.get('/set-cookies', (req,res) => {
-
-    // res.setHeader('Set-Cookie', 'newUser=true');
-    res.cookie('newUser', false);
-    res.cookie('isEmployee', true);
-
-    res.send('you got a cookie')
-
-})
-
-app.get('/gett-cookies', (req,res) => {
-
-    // res.setHeader('Set-Cookie', 'newUser=true');
-    const cookies = req.cookies;
-    console.log(cookies.newUser)
-
-    res.send('you got a cookie')
-
-})
-
-
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
 });

@@ -17,11 +17,11 @@ const userSchema = new mongoose.Schema({
   }
 });
 // fire a function after doc is saved to db
-userSchema.post('save',  function (doc, next) { 
+// userSchema.post('save',  function (doc, next) { 
 
 
-    next();
-})
+//     next();
+// })
 
 // fire a function before doc is saved to db
 userSchema.pre('save', async function(next) { 
@@ -31,6 +31,18 @@ userSchema.pre('save', async function(next) {
     next();
 })
 
+// static method to login user
+userSchema.statics.login = async function(email, plainPassword) {
+    const user = await this.findOne({ email: email });
+    if (user) {
+        const auth = await bcrypt.compare(plainPassword, user.password);
+        if (auth) {
+            return user;
+        }
+        throw Error("incorrect password");
+    }
+    throw Error("incorrect email")
+}
 
 const User = mongoose.model('user', userSchema);
 
