@@ -71,7 +71,7 @@ module.exports.login_post = async (req, res) => {
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: 1800 * 1000 });
         
-        res.status(200).redirect('/books');
+        res.status(200).redirect('/home');
         // .json({ user: user.d_id })
     }
     catch (err) {
@@ -82,5 +82,5 @@ module.exports.login_post = async (req, res) => {
 
 module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 })
-    res.redirect('/books');
+    res.redirect('/home');
 }
