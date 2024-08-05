@@ -3,38 +3,45 @@
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
         <title>ManageLib | Home</title>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/index.css">
     </head>
     <ul class="topnav">
         <nav>
-            <li id = "logo">
-                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
+            <li id="logo">
+                <a href="/" class="logo"><img src = "/images/logo.png" height= 60></a>
             </li>
             
-            <li>
-                <a href="/">Books</a>
+            <li id="home">
+                <a href="/" class="tabs">Home</a>
             </li>
             
-            <li>
-                <a href="/events">Events</a>
+            <li id="events" class="tabs">
+                <a href="/events" class="tabs">Events</a>
             </li>
 
-            <a href="/calendar">Calendar</a>
+            <li id="calendar" class="tabs">
+                <a href="/calendar" class="tabs">Calendar</a>
+            </li>    
 
             <li id="search">
                 <form action="/books/search" method="get">
-                    <select name="search-filter" id="search-filter">
+                    <select name="search-filter" id="search-filter" class="tabs">
                         <option value="title">Title</option>
                         <option value="genre">Genre</option>
                         <option value="author">Author</option>
                         <option value="publisher">Publisher</option>
                         <option value="stock">Stock</option>
                     </select>
-
-                    <input type="text" name="search-text" id="search-text" class="search" placeholder="search">
+                    <input type="text" name="search-text" id="search-text" class="search" placeholder="Search">
                 </form>
             </li>
-            <button class = "login" onclick="window.location.href='/login'">Log In</button>
+            <% if (user) { %>
+                <li class="greeting">Welcome, <%= user.email %></li>
+                <button class="logout" onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
+                <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% } %>
         </nav>
     </ul>
 
@@ -42,21 +49,25 @@
     <div id="preview-gallery-container">
         <% resources.forEach(resource => { %>
             <% if (resource.type == "book") { %>
+                
                 <div class = "preview-gallery"> 
                     <img src="/images/book.jpeg" alt="Book" width="180" height="276"> 
 
                     <div class="title">Title: <%= resource.title %></div> 
                     <div class="author">Author: <%= resource.author %></div>
                     <div class="copies">Copies: <%= resource.copies %></div> 
-                </div>            
+                </div>  
+
             <% } else if (resource.type == "magazine") { %>
-                <div class = "preview-gallery"> 
+                
+                <div class = "preview-gallery">
                     <img src="/images/magazine.jpg" alt="Book" width="180" height="276"> 
 
                     <div class="publisher">Publisher: <%= resource.publisher %></div> 
                     <div class="issue">Issue: <%= resource.issue %>, <%= resource.year %></div>
                     <div class="copies">Copies: <%= resource.copies %></div>
-                </div>             
+                </div>   
+
             <% } %>
         <% }) %>
     </div>
