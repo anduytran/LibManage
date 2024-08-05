@@ -16,13 +16,10 @@ body{
 .logo:hover{
     background-color: transparent;
 }
-nav{
-    z-index: 1;
-    position: relative;
-    display:flex;
-    overflow: hidden;
-    background-color: #dfddd9;
-    align-items: center;
+nav {
+    display: flex;
+    align-items: center; /* Vertically centers the items */
+    justify-content: space-between; /* Distributes space around items */
     padding: 10px 25px;
 }
 nav a{
@@ -60,9 +57,10 @@ nav li{
 nav li:hover{
     cursor: pointer;
 }
-#search{
-    width: 357 px;
-    margin: 4px;
+#search {
+    width: 357px; /* Fixed typo: 357px instead of 357 px */
+    margin: 4px auto; /* Center align the search bar */
+    display: block; /* Ensures the form element behaves as expected */
 }
 #search-text{
     width: 297px;
@@ -102,12 +100,17 @@ nav button, input[type=text]{
 nav input[type=text]{
     border: 1px solid #ccc;
 }
-.preview-gallery{
-    margin-top: 3%;
-    margin-left: 10%;
-    margin-bottom: 3%;
-    overflow: auto;
-    display:inline-block;
-    flex-direction: column;
-    width: auto;
+.preview-gallery {
+    width: 300px; /* Fixed width */
+    height: auto; /* Height adjusts based on content */
+    margin: 20px; /* Consistent margin */
+    display: inline-block; /* Aligns items side by side */
+    vertical-align: top; /* Aligns items at their top edge */
+    overflow: hidden; /* Keeps content within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+}
+.preview-gallery img {
+    width: 300px; /* Makes image width responsive to container width */
+    height: 500px; /* Maintains aspect ratio */
+    display: block; /* Removes bottom gap/line */
 }

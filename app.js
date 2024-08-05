@@ -144,29 +144,31 @@ app.post('/signup', async (req, res) => {
 
 // Login Route
 app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    // Find the user
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).send('Invalid email or password');
+    const { email, password } = req.body;
+    try {
+      // Find the user
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.render('login', { error: 'Invalid email or password', session: req.session });
+      }
+  
+      // Check the password
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.render('login', { error: 'Invalid email or password', session: req.session });
+      }
+  
+      // Store user information in session
+      req.session.userId = user._id;
+      req.session.userName = user.name;
+      req.session.userRole = user.role; // Store user role
+  
+      res.redirect('/books');
+    } catch (error) {
+      res.status(500).send('Server error');
     }
-
-    // Check the password
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).send('Invalid email or password');
-    }
-
-    // Store user information in session
-    req.session.userId = user._id;
-    req.session.userName = user.name;
-
-    res.redirect('/books');
-  } catch (error) {
-    res.status(500).send('Server error');
-  }
-});
+  });
+  
 
 // Logout Route
 app.get('/logout', (req, res) => {
@@ -242,3 +244,59 @@ app.get('/logout', (req, res) => {
       });
   });
 
+// Middleware to check if user is authenticated
+const isAuthenticated = (req, res, next) => {
+    if (req.session.userId) {
+      return next();
+    }
+    res.redirect('/login');
+  };
+  
+  // Middleware to check if user is an employee
+  const isEmployee = (req, res, next) => {
+    if (req.session.userId && req.session.userRole === 'Employee') {
+      return next();
+    }
+    res.status(403).send('Access denied: Employee permissions required.');
+  };
+  
+  // Middleware to check if user is an administrator
+  const isAdmin = (req, res, next) => {
+    if (req.session.userId && req.session.userRole === 'Administrator') {
+      return next();
+    }
+    res.status(403).send('Access denied: Administrator permissions required.');
+  };
+  
+  module.exports = {
+    isAuthenticated,
+    isEmployee,
+    isAdmin
+  };
+  
+  const { isAuthenticated, isEmployee, isAdmin } = require('./middlewares/auth'); // Adjust path as necessary
+
+// Normal user access
+app.get('/my-items', isAuthenticated, (req, res) => {
+  // Fetch and render user's items
+  Resource.find({ userId: req.session.userId })
+    .then(items => {
+      res.render('my-items', { items, session: req.session });
+    })
+    .catch(err => {
+      console.log(err);
+      res.render('my-items', { items: [], session: req.session, error: 'Failed to load your items' });
+    });
+});
+
+// Employee access
+app.get('/employee-dashboard', isAuthenticated, isEmployee, (req, res) => {
+  // Render employee dashboard
+  res.render('employee-dashboard', { session: req.session });
+});
+
+// Administrator access
+app.get('/admin-dashboard', isAuthenticated, isAdmin, (req, res) => {
+  // Render admin dashboard
+  res.render('admin-dashboard', { session: req.session });
+});
