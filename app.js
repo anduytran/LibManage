@@ -139,7 +139,13 @@ app.get('/events', async (req, res) => {
 });
 
 app.get('/calendar', (req, res) => {
-    res.render('calendar');
+    Event.find().sort({ createdAt: -1 })
+    .then(result => {
+        res.render('calendar', { events: result });
+    })
+    .catch(err => {
+        console.log(err);
+    });
 });
 
 app.get('/add-event', (req, res) => {
