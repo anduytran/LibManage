@@ -4,23 +4,34 @@
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
         <title>ManageLib | Calendar</title>
-        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/calendarStyle.css">
+        <link rel="stylesheet" href="/navbar.css">
     </head>
     <ul class="topnav">
         <nav>
-            <li id = "logo">
-                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
+            <li id="logo">
+                <a href="/" class="logo"><img src = "/images/logo.png" height= 60></a>
+            </li>
+            
+            <li id="home">
+                <a href="/" class="tabs">Home</a>
+            </li>
+            
+            <li id="events" class="tabs">
+                <a href="/events" class="tabs">Events</a>
             </li>
 
-            <li>
-                <a href="/">Books</a>
-            </li>
-            <li>
-                <a href="/events">Events</a>
-            </li>
+            <li id="calendar" class="tabs">
+                <a href="/calendar" class="tabs">Calendar</a>
+            </li>    
 
-            <a href="/calendar">Calendar</a>
-            <button class = "login" onclick="window.location.href='/login'">Log In</button>
+            <% if (user) { %>
+                <li class="greeting">Welcome, <%= user.email %></li>
+                <button class="logout" onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
+                <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% } %>
         </nav>
     </ul>
 
@@ -48,12 +59,28 @@
                     <div id="eventMenu" class="menu">
                         <div class="menu-content">
                             <span class="close" onclick="closeMenu()">&times;</span>
-                            <h2>Add Event</h2>
-                            <label for="eventDate">Date: </label>
-                            <input type="text" id="eventDate" readonly><br>
-                            <label for="eventTitle">Event Title: </label>
-                            <input type="text" id="eventTitle"><br>
-                            <button onclick="saveEvent()">Save Event</button>
+                            <div class="event-information">
+                                <h1>Events</h1>
+                                <div id="currentEvent">
+                                    <b>Events Scheduled: </b>
+                                </div>
+                            </div>
+                            <div class = "addEvent">
+                                <h2>Add Event:</h2>
+                                <label for="eventTitle">Title: </label>
+                                <input type="text" id="eventTitle"><br>
+
+                                <label for="eventDescription">Description: </label>
+                                <input type="text" id="eventDescription"><br>
+
+                                <label for="eventDate">Date: </label>
+                                <input type="text" id="eventDate" readonly><br>
+
+                                <label for="eventTime">Time: </label>
+                                <input type="text" id="eventTime"><br>
+
+                                <button onclick="saveEvent()">Save Event</button>
+                            </div>
                         </div>
                     </div>
             </tbody>
@@ -61,76 +88,95 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const calendarBody = document.getElementById('calendar-body');
-        const eventDateInput = document.getElementById('eventDate');
-        const eventTitleInput = document.getElementById('eventTitle');
-        let events = {};
+        document.addEventListener("DOMContentLoaded", () => {
+            const calendarBody = document.getElementById("calendar-body");
+            const eventDateInput = document.getElementById("eventDate");
+            const eventTitleInput = document.getElementById("eventTitle");
+            const eventTimeInput = document.getElementById("eventTime"); 
+            const eventDescriptionInput = document.getElementById("eventDescription");
+            const currentEventDisplay = document.getElementById("currentEvent");
+            const eventMenu = document.getElementById("eventMenu");
+            let events = {};
+            let descriptions = {};
+            let times = {};
 
-        function generateCalendar(year, month) {
-            calendarBody.innerHTML = '';
-            const date = new Date(year, month - 1, 1);
-            const daysInMonth = new Date(year, month, 0).getDate();
-            const firstDay = date.getDay();
+            function generateCalendar(year, month) {
+                calendarBody.innerHTML = "";
+                const date = new Date(year, month - 1, 1);
+                const daysInMonth = new Date(year, month, 0).getDate();
+                const firstDay = date.getDay();
 
-            let row = document.createElement('tr');
-            for (let i = 0; i < firstDay; i++) {
-                let cell = document.createElement('td');
-                row.appendChild(cell);
+                let row = document.createElement("tr");
+                for (let i = 0; i < firstDay; i++) {
+                    let cell = document.createElement("td");
+                    row.appendChild(cell);
+                }
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    if (row.children.length === 7) {
+                        calendarBody.appendChild(row);
+                        row = document.createElement("tr");
+                    }
+                    let cell = document.createElement("td");
+                    cell.innerText = day;
+                    cell.onclick = () => openMenu(year, month, day);
+                    const eventKey = `${year}-${month}-${day}`;
+                    if (events[eventKey]) {
+                        const ribbon = document.createElement("div");
+                        ribbon.className = "ribbon";
+                        ribbon.innerText = events[eventKey];
+                        cell.appendChild(ribbon);
+                    }
+                    row.appendChild(cell);
+                }
+
+                while (row.children.length < 7) {
+                    let cell = document.createElement("td");
+                    row.appendChild(cell);
+                }
+                calendarBody.appendChild(row);
             }
 
-            for (let day = 1; day <= daysInMonth; day++) {
-                if (row.children.length === 7) {
-                    calendarBody.appendChild(row);
-                    row = document.createElement('tr');
-                }
-                let cell = document.createElement('td');
-                cell.innerText = day;
-                cell.onclick = () => openMenu(year, month, day);
+            function openMenu(year, month, day) {
                 const eventKey = `${year}-${month}-${day}`;
+                eventMenu.style.display = "block";
+                eventDateInput.value = eventKey;
+
                 if (events[eventKey]) {
-                    const ribbon = document.createElement('div');
-                    ribbon.className = 'ribbon';
-                    ribbon.innerText = events[eventKey];
-                    cell.appendChild(ribbon);
+                    currentEventDisplay.innerText = `${events[eventKey]} at ${times[eventKey]} \n Description: ${descriptions[eventKey]}`;
+                } else {
+                    currentEventDisplay.innerText = "No events scheduled on this day.";
                 }
-                row.appendChild(cell);
             }
-            
-            while (row.children.length < 7) {
-                let cell = document.createElement('td');
-                row.appendChild(cell);
+
+            function closeMenu() {
+                eventMenu.style.display = "none";
+                eventTitleInput.value = "";
+                eventTimeInput.value = "";
+                eventDescriptionInput.value = "";
             }
-            calendarBody.appendChild(row);
-        }
-        function openMenu(year, month, day) {
-            eventMenu.style.display = 'block';
-            eventDateInput.value = `${year}-${month}-${day}`;
-        }
 
-        function closeMenu() {
-            eventMenu.style.display = 'none';
-            eventTitleInput.value = '';
-        }
+            function saveEvent() {
+                const date = eventDateInput.value;
+                const title = eventTitleInput.value;
+                const description = eventDescriptionInput.value;
+                const time = eventTimeInput.value;
 
-        function saveEvent() {
-            const date = eventDateInput.value;
-            const title = eventTitleInput.value;
-
-            if (title) {
-                events[date] = title;
-                closeMenu();
-                generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
-            } else {
-                alert('Event title cannot be empty!');
+                if (title && description && time) {
+                    events[date] = title;
+                    descriptions[date] = description;
+                    times[date] = time;
+                    closeMenu();
+                    generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
+                } else {
+                    alert("One or more lines is empty!");
+                }
             }
-        }
 
-        generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
+            generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
 
-        window.closeMenu = closeMenu;
-        window.saveEvent = saveEvent;
-        
-    });
+            window.closeMenu = closeMenu;
+            window.saveEvent = saveEvent;
+        });
     </script>
 </html>
