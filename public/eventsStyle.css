@@ -143,6 +143,18 @@ nav button, input[type=text]{
 nav input[type=text]{
     border: 1px solid #ccc;
 }
+.login {
+	background-color: #f29d15;
+	width: 10%;
+	right: 10px;
+	color: #ffffff;
+	float: start;
+	position: absolute;
+}
+
+.login:hover {
+	background-color: #d08714;
+}
 .preview-gallery{
     margin-top: 3%;
     margin-left: 10%;
@@ -192,4 +204,49 @@ h2 {
 }
 .event-details p {
     margin: 5px 0;
+}
+
+#preview-gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preview-gallery {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 350px;
+}
+
+.preview-gallery:hover {
+    transform: translateY(-2px);
+}
+
+.preview-gallery img {
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid #a0a0a0;
+}
+.preview-gallery div {
+    padding: 15px;
+    outline: #000;
+}
+
+.title {
+    font-size: 3;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1;
+    margin-bottom: 10px;
+}
+
+.date, .time {
+    font-size: 0.9;
+    color: #666;
+    margin-bottom: 5px;
 }
