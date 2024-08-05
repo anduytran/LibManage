@@ -12,7 +12,6 @@
             </li>
             
             <li>
-                <a href="/">Books</a>
             </li>
             
             <li>
@@ -20,6 +19,7 @@
             </li>
 
             <a href="/calendar">Calendar</a>
+            
 
             <li id="search">
                 <form action="/books/search" method="get">
@@ -37,7 +37,10 @@
             <% if (session.userId) { %>
                 <li>
                     <span>Welcome, <%= session.userName %></span>
+                    
                 </li>
+                <button onclick="window.location.href='/my-items'">My Items</button>
+                <button onclick="window.location.href='/my-events'">My Events</button>
                 <button onclick="window.location.href='/logout'">Logout</button>
             <% } else { %>
                 <button onclick="window.location.href='/login'">Log In</button>

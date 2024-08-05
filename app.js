@@ -205,3 +205,40 @@ app.get('/logout', (req, res) => {
       res.redirect('/login');
     });
   });
+
+  app.get('/my-items', (req, res) => {
+    // Ensure the user is logged in
+    if (!req.session.userId) {
+      return res.redirect('/login');
+    }
+  
+    // Fetch user's items here
+    // For example, Resource.find({ userId: req.session.userId })
+    Resource.find({ userId: req.session.userId })
+      .then(items => {
+        res.render('my-items', { items, session: req.session });
+      })
+      .catch(err => {
+        console.log(err);
+        res.render('my-items', { items: [], session: req.session, error: 'Failed to load your items' });
+      });
+  });
+  
+  app.get('/my-events', (req, res) => {
+    // Ensure the user is logged in
+    if (!req.session.userId) {
+      return res.redirect('/login');
+    }
+  
+    // Fetch user's events here
+    // For example, Event.find({ userId: req.session.userId })
+    Event.find({ userId: req.session.userId })
+      .then(events => {
+        res.render('my-events', { events, session: req.session });
+      })
+      .catch(err => {
+        console.log(err);
+        res.render('my-events', { events: [], session: req.session, error: 'Failed to load your events' });
+      });
+  });
+

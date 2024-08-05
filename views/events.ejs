@@ -9,13 +9,15 @@
     <div class="topnav">
         <nav>
             <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
-            <a href="/">Books</a>
+            <a href="/">Home</a>
             <a href="/events">Events</a>
             <a href="/calendar">Calendar</a>
             <% if (session.userId) { %>
                 <li>
                     <span>Welcome, <%= session.userName %></span>
                 </li>
+                <button onclick="window.location.href='/my-items'">My Items</button>
+                <button onclick="window.location.href='/my-events'">My Events</button>
                 <button onclick="window.location.href='/logout'">Logout</button>
             <% } else { %>
                 <button onclick="window.location.href='/login'">Log In</button>
