@@ -60,18 +60,33 @@ nav li{
 nav li:hover{
     cursor: pointer;
 }
-
-.login {
-	background-color: #f29d15;
-	width: 10%;
-	right: 10px;
-	color: #ffffff;
-	float: start;
-	position: absolute;
+#search{
+    width: 357 px;
+    margin: 4px;
 }
-
-.login:hover {
-	background-color: #d08714;
+#search-text{
+    width: 297px;
+    font-size: 16px;
+    border:5 #dfddd9;
+    border-radius: 2px;
+    height: 52px;
+    margin-right: 0;
+    color:#000000;
+    outline: none;
+    background: transparent;
+    float: left;
+    transition: all 0.2s;
+}
+#search-text:focus{
+    background-color: #d7d4ce;
+}
+.register{
+    background-color: #f29d15;
+    float: inline-end;
+    color: #ffffff;
+}
+.register:hover{
+    background-color: #d08714;
 }
 nav form{
     display: flex;
@@ -95,84 +110,4 @@ nav input[type=text]{
     display:inline-block;
     flex-direction: column;
     width: auto;
-}
-
-.calendar {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 35px 0;
-}
-
-.calendar th, .calendar td {
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-    vertical-align: top;
-    position: relative;
-    height: 100px;
-    width: 14.2857143%;
-}
-
-.calendar th {
-    background-color: #edebe7;
-    font-weight: bold;
-}
-
-.calendar td:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
-.container {
-	width: 25%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	margin-top: 2%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	background: #fcf9f3;
-	border: solid;
-	border-width: 1px;
-	border-color: gray;
-	border-radius: 10px;
-}
-
-.event-container {
-	width: 25%;
-	padding: 2%;
-	margin-top: 2%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	background: #fcf9f3;
-	border: solid;
-	border-width: 1px;
-	border-color: gray;
-	border-radius: 10px;
-}
-
-.form-group {
-	margin-bottom: 5px;
-}
-
-select {
-	border: none;
-	background-color: #dfddd9;
-	font-size: 16px;
-	padding: 14px 16px;
-	margin-right: 35px;
-}
-select:hover {
-	background-color: #c6c5c1;
-}
-
-option {
-    font-size: 16px;
-    background-color: #dfddd9;
-}
-
-#eventTitle {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
