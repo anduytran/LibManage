@@ -134,7 +134,6 @@ nav input[type=text]{
     position: absolute;
     top: 10px;
     right: -20px;
-    transform: rotate(45deg);
     color: white;
     text-align: center;
     line-height: 20px;
