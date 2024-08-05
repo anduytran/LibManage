@@ -4,7 +4,7 @@
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
         <title>ManageLib | Calendar</title>
-        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/calendarStyle.css">
         <link rel="stylesheet" href="/navbar.css">
     </head>
     <ul class="topnav">
@@ -49,12 +49,20 @@
                     <div id="eventMenu" class="menu">
                         <div class="menu-content">
                             <span class="close" onclick="closeMenu()">&times;</span>
-                            <h2>Add Event</h2>
-                            <label for="eventDate">Date: </label>
-                            <input type="text" id="eventDate" readonly><br>
-                            <label for="eventTitle">Event Title: </label>
-                            <input type="text" id="eventTitle"><br>
-                            <button onclick="saveEvent()">Save Event</button>
+                            <div class="event-information">
+                                <h2>Current Event</h2>
+                                <div id="currentEvent">
+                                    
+                                </div>
+                            </div>
+                            <div class = "addEvent">
+                                <h2>Add Event</h2>
+                                <label for="eventDate">Date: </label>
+                                <input type="text" id="eventDate" readonly><br>
+                                <label for="eventTitle">Event Title: </label>
+                                <input type="text" id="eventTitle"><br>
+                                <button onclick="saveEvent()">Save Event</button>
+                            </div>
                         </div>
                     </div>
             </tbody>
@@ -62,36 +70,38 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const calendarBody = document.getElementById('calendar-body');
-        const eventDateInput = document.getElementById('eventDate');
-        const eventTitleInput = document.getElementById('eventTitle');
+        document.addEventListener("DOMContentLoaded", () => {
+        const calendarBody = document.getElementById("calendar-body");
+        const eventDateInput = document.getElementById("eventDate");
+        const eventTitleInput = document.getElementById("eventTitle");
         let events = {};
 
         function generateCalendar(year, month) {
-            calendarBody.innerHTML = '';
+            calendarBody.innerHTML = "";
             const date = new Date(year, month - 1, 1);
             const daysInMonth = new Date(year, month, 0).getDate();
+            const currentEventDisplay = document.getElementById("currentEvent");
+            const eventMenu = document.getElementById("eventMenu");
             const firstDay = date.getDay();
 
-            let row = document.createElement('tr');
+            let row = document.createElement("tr");
             for (let i = 0; i < firstDay; i++) {
-                let cell = document.createElement('td');
+                let cell = document.createElement("td");
                 row.appendChild(cell);
             }
 
             for (let day = 1; day <= daysInMonth; day++) {
                 if (row.children.length === 7) {
                     calendarBody.appendChild(row);
-                    row = document.createElement('tr');
+                    row = document.createElement("tr");
                 }
-                let cell = document.createElement('td');
+                let cell = document.createElement("td");
                 cell.innerText = day;
                 cell.onclick = () => openMenu(year, month, day);
                 const eventKey = `${year}-${month}-${day}`;
                 if (events[eventKey]) {
-                    const ribbon = document.createElement('div');
-                    ribbon.className = 'ribbon';
+                    const ribbon = document.createElement("div");
+                    ribbon.className = "ribbon";
                     ribbon.innerText = events[eventKey];
                     cell.appendChild(ribbon);
                 }
@@ -99,23 +109,30 @@
             }
             
             while (row.children.length < 7) {
-                let cell = document.createElement('td');
+                let cell = document.createElement("td");
                 row.appendChild(cell);
             }
             calendarBody.appendChild(row);
         }
         function openMenu(year, month, day) {
-            eventMenu.style.display = 'block';
+            eventMenu.style.display = "block";
             eventDateInput.value = `${year}-${month}-${day}`;
+            
+            if(events[eventDateInput.value]){
+                currentEventDisplay.innerText = "Event on ${eventKey}: ${events[eventKey]}";
+            } else {
+                currentEventDisplay.innerText = "No events scheduled on this day.";
+            }
         }
 
         function closeMenu() {
-            eventMenu.style.display = 'none';
-            eventTitleInput.value = '';
+            eventMenu.style.display = "none";
+            eventTitleInput.value = "";
         }
 
         function saveEvent() {
             const date = eventDateInput.value;
+            console.log(date);
             const title = eventTitleInput.value;
 
             if (title) {
@@ -123,7 +140,7 @@
                 closeMenu();
                 generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
             } else {
-                alert('Event title cannot be empty!');
+                alert("Event title cannot be empty!");
             }
         }
 
