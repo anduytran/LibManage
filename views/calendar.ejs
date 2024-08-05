@@ -19,9 +19,15 @@
             </li>
 
             <a href="/calendar">Calendar</a>
-            <button onclick="window.location.href='/login'">Log In</button>
-            <button class = "register" onclick="window.location.href='/signup'">Sign Up</button>
-        </nav>
+            <% if (session.userId) { %>
+                <li>
+                    <span>Welcome, <%= session.userName %></span>
+                </li>
+                <button onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button onclick="window.location.href='/login'">Log In</button>
+                <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
+            <% } %>
     </ul>
 
     <div class = "Calendar">

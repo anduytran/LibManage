@@ -34,8 +34,15 @@
                     <input type="text" name="search-text" id="search-text" class="search" placeholder="search">
                 </form>
             </li>
-            <button onclick="window.location.href='/login'">Log In</button>
-            <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
+            <% if (session.userId) { %>
+                <li>
+                    <span>Welcome, <%= session.userName %></span>
+                </li>
+                <button onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button onclick="window.location.href='/login'">Log In</button>
+                <button class="register" onclick="window.location.href='/signup'">Sign Up</button>
+            <% } %>
         </nav>
     </ul>
 
