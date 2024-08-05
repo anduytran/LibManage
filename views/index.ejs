@@ -34,7 +34,13 @@
                     <input type="text" name="search-text" id="search-text" class="search" placeholder="search">
                 </form>
             </li>
-            <button class = "login" onclick="window.location.href='/login'">Log In</button>
+            <% if (user) { %>
+                <li>Welcome, <%= user.email %></li>
+                <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+                <button class = "signup" onclick="window.location.href='/signup'">Sign Up</button>
+                <button class = "login" onclick="window.location.href='/login'">Log In</button>
+            <% } %>
         </nav>
     </ul>
 
@@ -63,5 +69,5 @@
 
             <% } %>
         <% }) %>
-    </div>2
+    </div>
 </html>

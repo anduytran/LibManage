@@ -73,6 +73,19 @@ nav li:hover{
 .login:hover {
 	background-color: #d08714;
 }
+.signup {
+	background-color: #f29d15;
+	width: 10%;
+	right: 10px;
+	color: #ffffff;
+	float: left;
+	position: float;
+}
+
+.signup:hover {
+	background-color: #d08714;
+}
+
 nav form{
     display: flex;
     align-items: center;
