@@ -13,10 +13,8 @@ body{
     margin-top: 3%;
     margin-left: 10%;
     margin-bottom: 3%;
-    overflow: auto;
+    overflow: hidden;
     display:inline-block;
-    flex-direction: column;
-    width: auto;
 }
 .container {
     max-width: 1000px;
@@ -54,7 +52,7 @@ h2 {
 }
 .event-details h3 {
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .event-details p {
     margin: 5px 0;
@@ -67,10 +65,10 @@ h2 {
 }
 
 .preview-gallery {
+    position: relative;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     width: 350px;
 }
 
@@ -102,5 +100,20 @@ h2 {
 .date, .time {
     font-size: 0.9;
     color: #666;
-    margin-bottom: 5px;
+    
 }
+
+.rsvp-button {
+    position: absolute;
+    padding: 8px 16px;   /* Padding inside the button */
+    background-color: #007BFF; /* Example blue background */
+    color: white;        /* White text color */
+    border: none;        /* No border */
+    cursor: pointer;     /* Cursor indicates button */
+    right: 0px;
+    bottom: 0px;
+    border-radius: 7px;
+}
+
+
+

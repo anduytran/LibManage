@@ -158,3 +158,15 @@ option {
     margin-right: auto;
     text-align: center;
 }
+
+.Checkout-button {
+    position: absolute;
+    padding: 8px 16px;   /* Padding inside the button */
+    background-color: #007BFF; /* Example blue background */
+    color: white;        /* White text color */
+    border: none;        /* No border */
+    cursor: pointer;     /* Cursor indicates button */
+    right: 0px;
+    bottom: 0px;
+    border-radius: 7px;
+}
