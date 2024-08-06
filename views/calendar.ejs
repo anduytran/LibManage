@@ -108,10 +108,8 @@
                 events[eventKey] = '<%=event.title%>';
                 var str = '<%=event.description%>';
                 str = str.replace(/&#39;/g, "'");
-                console.log(str);
                 descriptions[eventKey] = str;
                 times[eventKey] = '<%=event.time%>';
-                console.log(month);
             }
             '<% }) %>'
             
