@@ -22,9 +22,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
 
-
-
-
 // [----- Routes -----]
 app.get('*', checkUser);
 
@@ -95,9 +92,43 @@ app.get('/home/search/', (req, res) => {
             console.log(err);
         });
     }
+    else if (filter == "books") {
+        Resource.find({ "type": "book" })
+        .then(result => {
+            res.render('home', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+    else if (filter == "magazines") {
+        Resource.find({ "type": "magazine" })
+        .then(result => {
+            res.render('home', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+    else if (filter == "location") {
+        Resource.find({ "location": { "$regex": searchInput, "$options": 'i' } })
+        .then(result => {
+            res.render('home', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+    }
+    else if (filter == "description") {
+        Resource.find({ "description": { "$regex": searchInput, "$options": 'i' } })
+        .then(result => {
+            res.render('home', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+      });
+    }
 });
-
-
 
 app.get('/events', async (req, res) => {
     Event.find().sort({ createdAt: -1 })
