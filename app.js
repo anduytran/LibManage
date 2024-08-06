@@ -120,7 +120,7 @@ app.get('/calendar', (req, res) => {
 });
 
 app.get('/add-event', (req, res) => {
-    res.render('eventCreate');
+    res.render('add-event');
 });
 
 app.post('/add-event', (req, res) => {
@@ -129,6 +129,21 @@ app.post('/add-event', (req, res) => {
     newEvent.save();
     res.redirect('/events');
 });
+
+app.post('/add-resource', (req,res) => {
+    const { type } = req.body;
+    if (type == "magazine") {
+        const newMagazine = new Resource({ type, publisher, year, issue });
+        newMagazine.save();
+        res.redirect('/events');
+    }
+    else if (type == "book") {
+        const newBook = new Resource({ type, title, author, pages, genres, stock, copies });
+        newBook.save();
+        res.redirect('/home');
+    }
+})
+
 app.use(authRoutes);
 
 

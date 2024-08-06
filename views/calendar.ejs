@@ -87,7 +87,10 @@
         </table>
     </div>
 
+
+
     <script>
+           
         document.addEventListener("DOMContentLoaded", () => {
             const calendarBody = document.getElementById("calendar-body");
             const eventDateInput = document.getElementById("eventDate");
@@ -178,5 +181,10 @@
             window.closeMenu = closeMenu;
             window.saveEvent = saveEvent;
         });
+    </script>
+
+    <script> 
+        var coffepoints = '<%= JSON.stringify(events) %>'
+        console.log(coffepoints);
     </script>
 </html>
