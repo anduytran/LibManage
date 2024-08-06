@@ -23,7 +23,15 @@
 
             <li id="calendar" class="tabs">
                 <a href="/calendar" class="tabs">Calendar</a>
-            </li>    
+            </li>
+
+            
+            
+            <% if (user.role == "employee") { %>
+                <li id="calendar" class="tabs">
+                    <a href="/add-event" class="tabs">Add Event</a>
+                </li>
+            <% } %>
 
             <% if (user) { %>
                 <li class="greeting">Welcome, <%= user.email %></li>
@@ -34,7 +42,7 @@
             <% } %>
         </nav>
     </ul>
-
+    
     <div class = "Calendar">
         <table class="calendar">
             <thead>
@@ -183,8 +191,4 @@
         });
     </script>
 
-    <script> 
-        var coffepoints = '<%= JSON.stringify(events) %>'
-        console.log(coffepoints);
-    </script>
 </html>

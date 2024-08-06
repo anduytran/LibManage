@@ -119,17 +119,8 @@ app.get('/calendar', (req, res) => {
     });
 });
 
-app.get('/add-event', (req, res) => {
-    res.render('add-event');
-});
 
-app.post('/add-event', (req, res) => {
-    const { title, description, image, date, time } = req.body;
-    const newEvent = new Event({ title, description, image, date, time });
-    newEvent.save();
-    res.redirect('/events');
-});
-
+/* to do*/
 app.post('/add-resource', (req,res) => {
     const { type } = req.body;
     if (type == "magazine") {
@@ -150,7 +141,16 @@ app.use(authRoutes);
 
 app.get('/employees', requireAuth, (req, res) => res.render('employees'))
 
-app.get('/logout', (req, res) => res.render('logout'))
+app.get('/add-event', requireAuth, (req, res) => {
+    res.render('add-event');
+});
+
+app.post('/add-event', requireAuth, (req, res) => {
+    const { title, description, image, date, time } = req.body;
+    const newEvent = new Event({ title, description, image, date, time });
+    newEvent.save();
+    res.redirect('/events');
+});
 
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
