@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <% const eventsThisMonth = []; %>
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
         <title>ManageLib | Calendar</title>
@@ -49,13 +48,6 @@
                 </tr>
             </thead>
             <tbody id="calendar-body">
-                <% events.forEach(event => {
-                    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                    const currentDate = new Date();
-                    if(event.date.toDateString().substring(4,7) == monthNames[currentDate.getMonth()] && event.date.toDateString().substring(11,15) == currentDate.getFullYear()) {
-                        eventsThisMonth.push(event);
-                    }
-                })%>
                     <div id="eventMenu" class="menu">
                         <div class="menu-content">
                             <span class="close" onclick="closeMenu()">&times;</span>
@@ -88,6 +80,19 @@
     </div>
 
     <script>
+
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const currentDate = new Date();
+        const eventsThisMonth = [];
+
+        '<% events.forEach(event => { %>'
+        if('<%=event.date.toDateString().substring(4,7)%>' == monthNames[currentDate.getMonth()] && '<%=event.date.toDateString().substring(11,15)%>' == currentDate.getFullYear()) {
+            eventsThisMonth.push('<%event%>');
+        }
+        '<% }) %>'
+
+        console.log(eventsThisMonth[0]);
+
         document.addEventListener("DOMContentLoaded", () => {
             const calendarBody = document.getElementById("calendar-body");
             const eventDateInput = document.getElementById("eventDate");
@@ -96,6 +101,7 @@
             const eventDescriptionInput = document.getElementById("eventDescription");
             const currentEventDisplay = document.getElementById("currentEvent");
             const eventMenu = document.getElementById("eventMenu");
+            
             let events = {};
             let descriptions = {};
             let times = {};
