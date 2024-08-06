@@ -9,19 +9,23 @@
 <body>
     <ul class="topnav">
         <nav>
-            <li id = "logo">
-                <a href="/" class = "logo"><img src = "/images/logo.png" height= 60></a>
-
+            <li id="logo">
+                <a href="/" class="logo"><img src = "/images/logo.png" height= 60></a>
             </li>
-            <li>
-                <a href="/">Books</a>
+            
+            <li id="home">
+                <a href="/" class="tabs">Home</a>
             </li>
-            <li>
-                <a href="/events">Events</a>
+            
+            <li id="events" class="tabs">
+                <a href="/events" class="tabs">Events</a>
             </li>
 
-            <a href="/calendar">Calendar</a>
+            <li id="calendar" class="tabs">
+                <a href="/calendar" class="tabs">Calendar</a>
+            </li>    
 
+        
             <% if (user) { %>
                 <li class="greeting">Welcome, <%= user.email %></li>
                 <button class="logout" onclick="window.location.href='/logout'">Logout</button>
@@ -29,7 +33,6 @@
                 <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
                 <button class="login" onclick="window.location.href='/login'">Log In</button>
             <% } %>
-            
         </nav>
     </ul>
 
