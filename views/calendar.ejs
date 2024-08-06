@@ -85,14 +85,6 @@
         const currentDate = new Date();
         const eventsThisMonth = [];
 
-        '<% events.forEach(event => { %>'
-        if('<%=event.date.toDateString().substring(4,7)%>' == monthNames[currentDate.getMonth()] && '<%=event.date.toDateString().substring(11,15)%>' == currentDate.getFullYear()) {
-            eventsThisMonth.push('<%event%>');
-        }
-        '<% }) %>'
-
-        console.log(eventsThisMonth[0]);
-
         document.addEventListener("DOMContentLoaded", () => {
             const calendarBody = document.getElementById("calendar-body");
             const eventDateInput = document.getElementById("eventDate");
@@ -106,6 +98,20 @@
             let descriptions = {};
             let times = {};
 
+
+            '<% events.forEach(event => { %>'
+            if('<%=event.date.toDateString().substring(4,7)%>' == monthNames[currentDate.getMonth()] && '<%=event.date.toDateString().substring(11,15)%>' == currentDate.getFullYear()) {
+                var month = new Date(Date.parse('<%=event.date.toDateString().substring(4,7)%>'+"1, 2024")).getMonth()+1;
+                var day = '<%=event.date.toDateString().substring(8,10)%>'
+                var year = '<%=event.date.toDateString().substring(11,15)%>'
+                let eventKey = `${year}-${month}-${day}`;
+                events[eventKey] = '<%=event.title%>';
+                descriptions[eventKey] = '<%=event.description%>';
+                times[eventKey] = '<%=event.time%>';
+                console.log(month);
+            }
+            '<% }) %>'
+            
             function generateCalendar(year, month) {
                 calendarBody.innerHTML = "";
                 const date = new Date(year, month - 1, 1);
