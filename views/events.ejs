@@ -22,7 +22,13 @@
 
             <a href="/calendar">Calendar</a>
 
-            <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% if (user) { %>
+                <li class="greeting">Welcome, <%= user.email %></li>
+                <button class="logout" onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
+                <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% } %>
             
         </nav>
     </ul>
@@ -30,12 +36,15 @@
     <div>
         <div id="preview-gallery-container">
             <% events.forEach(event => { %>
-                <div class = "preview-gallery"> 
+                <div class = "preview-gallery prbut"> 
                     <img src=<%= event.image %> alt="Book" width="350" height="350"> 
-                    <div class="title"><%= event.title %></div> 
-                    <div class="description"><%= event.description %></div>
-                    <div class="date"><%= event.date.toDateString().substring(3,15) %></div>
-                    <div class="time"><%= event.time %></div>
+                    <div class="title props"><%= event.title %></div> 
+                    <div class="description props"><%= event.description %></div>
+                    <div class="date props"><%= event.date.toDateString().substring(3,15) %></div>
+                    <div class="time props"><%= event.time %></div>
+                    <% if (user) { %>
+                         <button class="rsvp-button props" onclick="window.location.href='/rsvp/<%= event._id %>'">RSVP</button> 
+                    <% } %>
                 </div>
             <% }) %>
         </div>

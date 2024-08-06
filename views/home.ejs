@@ -57,6 +57,9 @@
                     <div class="title">Title: <%= resource.title %></div> 
                     <div class="author">Author: <%= resource.author %></div>
                     <div class="copies">Copies: <%= resource.copies %></div> 
+                    <% if (user) { %>
+                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Checkout</button> 
+                   <% } %>
                 </div>  
 
             <% } else if (resource.type == "magazine") { %>
@@ -67,6 +70,9 @@
                     <div class="publisher">Publisher: <%= resource.publisher %></div> 
                     <div class="issue">Issue: <%= resource.issue %>, <%= resource.year %></div>
                     <div class="copies">Copies: <%= resource.copies %></div>
+                    <% if (user) { %>
+                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Checkout</button> 
+                   <% } %>
                 </div>   
 
             <% } %>
