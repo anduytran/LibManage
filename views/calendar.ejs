@@ -106,7 +106,10 @@
                 var year = '<%=event.date.toDateString().substring(11,15)%>'
                 let eventKey = `${year}-${month}-${day}`;
                 events[eventKey] = '<%=event.title%>';
-                descriptions[eventKey] = '<%=event.description%>';
+                var str = '<%=event.description%>';
+                str = str.replace(/&#39;/g, "'");
+                console.log(str);
+                descriptions[eventKey] = str;
                 times[eventKey] = '<%=event.time%>';
                 console.log(month);
             }
