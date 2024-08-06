@@ -22,7 +22,13 @@
 
             <a href="/calendar">Calendar</a>
 
-            <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% if (user) { %>
+                <li class="greeting">Welcome, <%= user.email %></li>
+                <button class="logout" onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
+                <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% } %>
             
         </nav>
     </ul>
