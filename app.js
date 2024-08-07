@@ -162,7 +162,13 @@ app.post('/add-event', (req, res) => {
 });
 app.use(authRoutes);
 
+app.get('/checkout', (req,res) => {
+    res.redirect();
+})
 
+app.get('/control-center', (req,res) => {
+    res.render('controlCenter');
+})
 
 app.get('/employees', requireAuth, (req, res) => res.render('employees'))
 

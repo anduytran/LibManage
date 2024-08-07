@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Creation</title>
+</head>
+<body>
+    <form action="/add-event" method="POST">
+        <label for="title">Event Title</label><br>
+        <input type="text" id='title' name="title" required>
+        <br><br>
+        <label for="description">Event Description</label><br>        
+        <textarea id="description" name="description"></textarea>
+        <br><br>
+        <label for="body">Date</label><br>
+        <input type="date" id="date" name="date" required></input>
+        <br><br>
+        <label for="time">Time</label><br>
+        <input type="time" id="time" name="time" required></input>
+        <br><br>
+        <label for="image">Image Link</label><br>
+        <input type="text" id="image" name="image" required></input>
+        <br><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
