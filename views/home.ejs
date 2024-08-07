@@ -66,7 +66,11 @@
                     <div class="author">Author: <%= resource.author %></div>
                     <div class="copies">Copies: <%= resource.copies %></div> 
                     <% if (user) { %>
-                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Checkout</button> 
+                        <form action="/checkout" method="post">
+                            <input type="text" id='title' name="resource-id" value="<%= resource._id%>" hidden>
+                            <button id='checkout' class="Checkout-button props">Checkout</button> 
+                        </form>
+                        
                    <% } %>
                 </div>  
 

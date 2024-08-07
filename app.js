@@ -6,6 +6,8 @@ const Event = require('./models/event');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser')
 const { requireAuth, checkUser } = require('./middleware/authMiddleware')
+const jwt = require('jsonwebtoken');
+
 
 const app = express();
 
@@ -156,14 +158,26 @@ app.get('/add-event', (req, res) => {
 
 app.post('/add-event', (req, res) => {
     const { title, description, image, date, time } = req.body;
+    console.log(req.body)
     const newEvent = new Event({ title, description, image, date, time });
     newEvent.save();
     res.redirect('/events');
 });
 app.use(authRoutes);
 
-app.get('/checkout', (req,res) => {
-    res.redirect();
+app.post('/checkout', (req,res) => {
+    const id = req.body
+    const token = req.cookies.jwt;
+    let userID = ''
+    let checkoutID = id['resource-id'];
+
+    jwt.verify(token, 'lib-manage secret', async (err, decodedToken) => {
+        userID = decodedToken;
+    })
+
+    // console.log("this is the request id", id['resource-id']);
+    
+    // User.findOne({ "id": userID })
 })
 
 app.get('/control-center', (req,res) => {
