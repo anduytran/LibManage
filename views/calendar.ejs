@@ -35,6 +35,11 @@
     </ul>
 
     <div class = "Calendar">
+        <div class = "changeCalendar">
+            <span id="prev-month" class="arrowLeft"></span>
+            <span id="month-year"></span>
+            <span id="next-month" class="arrowRight"></span>
+        </div>
         <table class="calendar">
             <thead>
                 <tr>
@@ -93,7 +98,12 @@
             const eventDescriptionInput = document.getElementById("eventDescription");
             const currentEventDisplay = document.getElementById("currentEvent");
             const eventMenu = document.getElementById("eventMenu");
-            
+            const prevMonth = document.getElementById("prev-month");
+            const nextMonth = document.getElementById("next-month");
+            const monthYearDisplay = document.getElementById("month-year");
+
+            let currentYear = new Date().getFullYear();
+            let currentMonth = new Date().getMonth() + 1;
             let events = {};
             let descriptions = {};
             let times = {};
@@ -148,6 +158,8 @@
                     row.appendChild(cell);
                 }
                 calendarBody.appendChild(row);
+
+                monthYearDisplay.innerText = `${date.toLocaleString('default', { month: 'long' })} ${year}`;
             }
 
             function openMenu(year, month, day) {
@@ -180,16 +192,29 @@
                     descriptions[date] = description;
                     times[date] = time;
                     closeMenu();
-                    generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
                 } else {
                     alert("One or more lines is empty!");
                 }
             }
-
-            generateCalendar(new Date().getFullYear(), new Date().getMonth() + 1);
+            function changeMonth(offset) {
+                currentMonth += offset;
+                if (currentMonth < 1) {
+                    currentMonth = 12;
+                    currentYear--;
+                } else if (currentMonth > 12) {
+                    currentMonth = 1;
+                    currentYear++;
+                }
+                generateCalendar(currentYear, currentMonth);
+            }
 
             window.closeMenu = closeMenu;
             window.saveEvent = saveEvent;
+
+            prevMonth.addEventListener('click', () => changeMonth(-1));
+            nextMonth.addEventListener('click', () => changeMonth(1));
+
+            generateCalendar(currentYear, currentMonth);
         });
     </script>
 </html>
