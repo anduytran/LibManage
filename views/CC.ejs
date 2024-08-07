@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
-        <title>ManageLib | Events</title>
+        <title>ManageLib | Control Cneter</title>
         <link rel="stylesheet" href="/eventsStyle.css">
         <link rel="stylesheet" href="/navbar.css">
     </head>
@@ -29,6 +29,7 @@
                     <a href="/CC" class="tabs">Control Center</a>
                 </li>    
             <% } %>
+
         
             <% if (user) { %>
                 <li class="greeting">Welcome, <%= user.email %></li>
@@ -42,18 +43,7 @@
 
     <div>
         <div id="preview-gallery-container">
-            <% events.forEach(event => { %>
-                <div class = "preview-gallery prbut"> 
-                    <img src=<%= event.image %> alt="Book" width="350" height="350"> 
-                    <div class="title props"><%= event.title %></div> 
-                    <div class="description props"><%= event.description %></div>
-                    <div class="date props"><%= event.date.toDateString().substring(3,15) %></div>
-                    <div class="time props"><%= event.time %></div>
-                    <% if (user) { %>
-                         <button class="rsvp-button props" onclick="window.location.href='/rsvp/<%= event._id %>'">RSVP</button> 
-                    <% } %>
-                </div>
-            <% }) %>
+            
         </div>
     </div>
 </body>
