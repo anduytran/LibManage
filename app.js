@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
     res.redirect('/home')
 })
 
+
 app.get('/home', (req, res) => {
     Resource.find().sort({ createdAt: -1 })
         .then(result => {
@@ -162,7 +163,9 @@ app.post('/add-event', (req, res) => {
 });
 app.use(authRoutes);
 
-
+app.get('/control-center', (req, res) => {
+    res.render('controlCenter')
+})
 
 app.get('/employees', requireAuth, (req, res) => res.render('employees'))
 

@@ -49,7 +49,7 @@ module.exports.login_get = (req, res) => {
 
 module.exports.signup_post = async (req, res) => {
     const { name, email, password } = req.body;
-    const userRole = "user"
+    const userRole = "admin"
   
     try {
         const user = await User.create({ name, email, password, userRole });

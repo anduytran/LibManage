@@ -1,11 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name= "viewport" content="width=device-width, initial-scale = 1.0">
-        <title>ManageLib | Control Cneter</title>
-        <link rel="stylesheet" href="/eventsStyle.css">
-        <link rel="stylesheet" href="/navbar.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/eventsStyle.css">
+    <link rel="stylesheet" href="/navbar.css">
+    <title>Control Center</title>
+</head>
 <body>
     <ul class="topnav">
         <nav>
@@ -24,13 +24,14 @@
             <li id="calendar" class="tabs">
                 <a href="/calendar" class="tabs">Calendar</a>
             </li>    
-            <% if (user) { %>
-                <li id="CC" class="tabs">
-                    <a href="/CC" class="tabs">Control Center</a>
-                </li>    
-            <% } %>
-
-        
+            
+            <% try {if (user.userRole == "admin") { %>
+                <li id="controlCenter" class="tabs">
+                    <a href="/control-center" class="tabs">Control Center</a>
+                </li>
+            <% }} catch(err) {} %>
+                
+            
             <% if (user) { %>
                 <li class="greeting">Welcome, <%= user.email %></li>
                 <button class="logout" onclick="window.location.href='/logout'">Logout</button>
@@ -38,14 +39,23 @@
                 <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
                 <button class="login" onclick="window.location.href='/login'">Log In</button>
             <% } %>
+
+
+            
         </nav>
     </ul>
 
-    <div>
-        <div id="preview-gallery-container">
-            
+
+
+    <div class="container">
+        <div class="form-group"></div>
+            <h2>Control Center</h2>
+            <a href="/control-center" class="event-details">Control Center</a>
+            <a href="/control-center" class="event-details">Control Center</a>
+            <a href="/control-center" class="event-details">Control Center</a>
+            <a href="/control-center" class="event-details">Control Center</a>
+            <a href="/control-center" class="event-details">Control Center</a>
         </div>
     </div>
 </body>
 </html>
-

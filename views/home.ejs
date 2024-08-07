@@ -23,11 +23,11 @@
             <li id="calendar" class="tabs">
                 <a href="/calendar" class="tabs">Calendar</a>
             </li>    
-            <% if (user) { %>
-                <li id="CC" class="tabs">
-                    <a href="/CC" class="tabs">Control Center</a>
-                </li>    
-            <% } %>
+            <% try {if (user.userRole == "admin") { %>
+                <li id="controlCenter" class="tabs">
+                    <a href="/control-center" class="tabs">Control Center</a>
+                </li>
+            <% }} catch(err) {} %>
 
             <li id="search">
                 <form action="/home/search" method="get">
