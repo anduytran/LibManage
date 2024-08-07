@@ -29,6 +29,11 @@
                     <a href="/CC" class="tabs">Control Center</a>
                 </li>    
             <% } %>            
+                        <% if (user) { %>
+                <li id="CC" class="tabs">
+                    <a href="/CC" class="tabs">Control Center</a>
+                </li>    
+            <% } %>
             <% try {if (user.userRole == "admin") { %>
                 <li id="add-event" class="tabs">
                     <a href="/add-event" class="tabs">Add-Event</a>
