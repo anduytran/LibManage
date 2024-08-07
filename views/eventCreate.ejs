@@ -5,6 +5,7 @@
     <title>ManageLib | Manage Resources</title>
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/event-addStyle.css">
 </head>
 <body>
     <ul class="topnav">
@@ -24,7 +25,20 @@
             <li id="calendar" class="tabs">
                 <a href="/calendar" class="tabs">Calendar</a>
             </li>    
-            
+
+            <li id="add-event" class="tabs">
+                <button class="tabs" onclick="openMenu()">Add Event</button>
+            </li>
+
+            <li id="add-book" class="tabs">
+                <button class="tabs" onclick="openBook()">Add Book</button>
+            </li>
+
+            <li id="createAccount" class="tabs">
+                <button onclick="window.location.href='/signup'">Create Member Account</button>
+            </li>
+
+
             <% if (user) { %>
                 <li class="greeting">Welcome, <%= user.name %></li>
                 <button class="logout" onclick="window.location.href='/logout'">Logout</button>
@@ -35,23 +49,104 @@
         </nav>
     </ul>
 
-    <form action="/add-event" method="POST">
-        <label for="title">Event Title</label><br>
-        <input type="text" id='title' name="title" required>
-        <br><br>
-        <label for="description">Event Description</label><br>        
-        <textarea id="description" name="description"></textarea>
-        <br><br>
-        <label for="body">Date</label><br>
-        <input type="date" id="date" name="date" required></input>
-        <br><br>
-        <label for="time">Time</label><br>
-        <input type="time" id="time" name="time" required></input>
-        <br><br>
-        <label for="image">Image Link</label><br>
-        <input type="text" id="image" name="image" required></input>
-        <br><br>
-        <button>Submit</button>
-    </form>
+    <div id="eventMenu" class="menu">
+        <div class="menu-content">
+            <span class="close" onclick="closeMenu()">&times;</span>
+            <h1>Events</h1>
+            <div id = "addEvent" class = "addEvent">
+                <form action="/add-event" method="POST">
+                    <label for="title">Event Title</label><br>
+                    <input type="text" id='title' name="title" required>
+                    <br><br>
+                    <label for="description">Event Description</label><br>        
+                    <textarea id="description" name="description"></textarea>
+                    <br><br>
+                    <label for="body">Date</label><br>
+                    <input type="date" id="date" name="date" required></input>
+                    <br><br>
+                    <label for="time">Time</label><br>
+                    <input type="time" id="time" name="time" required></input>
+                    <br><br>
+                    <label for="image">Image Link</label><br>
+                    <input type="text" id="image" name="image" required></input>
+                    <br><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="bookMenu" class="menu">
+        <div class="menu-content">
+            <span class="close" onclick="closeBook()">&times;</span>
+            <h1>Books</h1>
+            <div id = "addEvent" class = "addEvent">
+                <form action="/add-event" method="POST">
+                    <label for="title">Book Title</label><br>
+                    <input type="text" id='title' name="title" required>
+                    <br><br>
+                    <label for="description">Description</label><br>        
+                    <textarea id="description" name="description"></textarea>
+                    <br><br>
+                    <label for="body">Author</label><br>
+                    <input type="date" id="date" name="date" required></input>
+                    <br><br>
+                    <label for="time">Time</label><br>
+                    <input type="time" id="time" name="time" required></input>
+                    <br><br>
+                    <label for="image">Image Link</label><br>
+                    <input type="text" id="image" name="image" required></input>
+                    <br><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="preview-gallery-container">
+        <% resources.forEach(resource => { %>
+            <% if (resource.type == "book") { %>
+                
+                <div class = "preview-gallery"> 
+                    <img src="/images/book.jpeg" alt="Book" width="180" height="276"> 
+
+                    <div class="title">Title: <%= resource.title %></div> 
+                    <div class="author">Author: <%= resource.author %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div> 
+                    <% if (user) { %>
+                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Edit</button> 
+                   <% } %>
+                </div>  
+
+            <% } else if (resource.type == "magazine") { %>
+                
+                <div class = "preview-gallery">
+                    <img src="/images/magazine.jpg" alt="Book" width="180" height="276"> 
+
+                    <div class="publisher">Publisher: <%= resource.publisher %></div> 
+                    <div class="issue">Issue: <%= resource.issue %>, <%= resource.year %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div>
+                    <% if (user) { %>
+                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Edit</button> 
+                   <% } %>
+                </div>   
+
+            <% } %>
+        <% }) %>
+    </div>
 </body>
 </html>
+
+<script>
+    function openMenu() {
+        eventMenu.style.display = "block";
+    }
+    function openBook() {
+        bookMenu.style.display = "block";
+    }
+    function closeBook() {
+        bookMenu.style.display = "none";
+    }
+    function closeMenu() {
+        eventMenu.style.display = "none";
+    }
+</script>

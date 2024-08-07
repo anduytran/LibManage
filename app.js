@@ -151,7 +151,13 @@ app.get('/calendar', (req, res) => {
 });
 
 app.get('/add-event', (req, res) => {
-    res.render('eventCreate');
+    Resource.find().sort({ createdAt: -1 })
+        .then(result => {
+            res.render('eventCreate', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 app.post('/add-event', (req, res) => {
@@ -161,8 +167,6 @@ app.post('/add-event', (req, res) => {
     res.redirect('/events');
 });
 app.use(authRoutes);
-
-
 
 app.get('/employees', requireAuth, (req, res) => res.render('employees'))
 
