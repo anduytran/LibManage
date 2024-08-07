@@ -27,7 +27,7 @@
             
             <% try {if (user.userRole == "admin") { %>
                 <li id="add-event" class="tabs">
-                    <a href="/add-event" class="tabs">Add-Event</a>
+                    <a href="/add-event" class="tabs">Manage Resources</a>
                 </li>
             <% }} catch(err) {} %>
                 
@@ -52,8 +52,6 @@
                     <div class="description props"><%= event.description %></div>
                     <div class="date props"><%= event.date.toDateString().substring(3,15) %></div>
                     <div class="time props"><%= event.time %></div>
-                    
-                  
                     
                     <% if (user) { %>
                          <button class="rsvp-button props" onclick="window.location.href='/rsvp/<%= event._id %>'">RSVP</button> 

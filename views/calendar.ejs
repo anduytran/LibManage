@@ -57,10 +57,8 @@
                         <div class="menu-content">
                             <span class="close" onclick="closeMenu()">&times;</span>
                             <div class="event-information">
-                                <h1>Events</h1>
-                                <div id="currentEvent">
-                                    <b>Events Scheduled: </b>
-                                </div>
+                                <h1 id = "dateText">Events on </h1>
+                                <div id = "currentEvent"></div>
                             </div>
                             <div id = "addEvent" class = "addEvent">
                                 <h2>Add Event:</h2>
@@ -93,6 +91,7 @@
             const nextMonth = document.getElementById("next-month");
             const monthYearDisplay = document.getElementById("month-year");
             const addEvent = document.getElementById("addEvent");
+            const dateText = document.getElementById("dateText");
             addEvent.style.display = "none";
 
             let currentYear = new Date().getFullYear();
@@ -157,8 +156,11 @@
 
             function openMenu(year, month, day) {
                 const eventKey = `${year}-${month}-${day}`;
+                var str = " "
+                str += eventKey;
                 eventMenu.style.display = "block";
                 eventDateInput.value = eventKey;
+                dateText.innerText += str;
 
                 if (events[eventKey]) {
                     currentEventDisplay.innerText = `${events[eventKey]} at ${times[eventKey]} \n ${descriptions[eventKey]}`;
@@ -172,6 +174,7 @@
                 eventTitleInput.value = "";
                 eventTimeInput.value = "";
                 eventDescriptionInput.value = "";
+                dateText.innerText = "Events on ";
             }
 
             function changeMonth(offset) {
