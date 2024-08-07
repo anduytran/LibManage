@@ -156,7 +156,7 @@ app.get('/calendar', (req, res) => {
 });
 
 // renders the form for creating events
-app.get('/add-event', (req, res) => {
+app.get('/add-event', requireAuth, (req, res) => {
     Resource.find().sort({ createdAt: -1 })
         .then(result => {
             res.render('eventCreate', { resources: result });

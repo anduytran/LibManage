@@ -44,6 +44,12 @@
                     <input type="text" name="search-text" id="search-text" class="search" placeholder="Search">
                 </form>
             </li>
+            <% try {if (user.userRole == "admin") { %>
+                <li id="add-event" class="tabs">
+                    <a href="/add-event" class="tabs">Manage Resources</a>
+                </li>
+            <% }} catch(err) {} %>
+            
             <!-- Users and guests have different greetings, so -->
             <% if (user) { %> 
                 <li class="greeting">Welcome, <%= user.name %></li>
