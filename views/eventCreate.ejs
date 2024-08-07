@@ -24,27 +24,7 @@
             <li id="calendar" class="tabs">
                 <a href="/calendar" class="tabs">Calendar</a>
             </li>    
-
-            <li id="search">
-                <form action="/home/search" method="get">
-                    <select name="search-filter" id="search-filter" class="tabs">
-                        <option value="title">Title</option>
-                        <option value="genre">Genre</option>
-                        <option value="author">Author</option>
-                        <option value="publisher">Publisher</option>
-                        <option value="stock">Stock</option>
-                        <option value="location">Location</option>
-                        <option value="description">Description</option>
-                        <option value="versions">Versions</option>
-                        <option value="books">Books</option>
-                        <option value="magazines">Magazines</option>
-                        <option value="availability">Availability</option>
-                        <option value="checkout">Checkout History</option>
-                        
-                    </select>
-                    <input type="text" name="search-text" id="search-text" class="search" placeholder="Search">
-                </form>
-            </li>
+            
             <% if (user) { %>
                 <li class="greeting">Welcome, <%= user.name %></li>
                 <button class="logout" onclick="window.location.href='/logout'">Logout</button>
