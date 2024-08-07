@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/navbar.css">
     </head>
 <body>
-    <ul class="topnav">
+    <ul class="topnav"> <!-- Navigation Bar -->
         <nav>
             <li id="logo">
                 <a href="/" class="logo"><img src = "/images/logo.png" height= 60></a>
@@ -33,7 +33,7 @@
                 
             
         
-            <% if (user) { %>
+            <% if (user) { %> <!-- Users and guests have different greetings, so -->
                 <li class="greeting">Welcome, <%= user.email %></li>
                 <button class="logout" onclick="window.location.href='/logout'">Logout</button>
             <% } else { %>
@@ -44,7 +44,7 @@
     </ul>
 
     <div>
-        <div id="preview-gallery-container">
+        <div id="preview-gallery-container"> <!-- HTML for preview gallery that displays events-->
             <% events.forEach(event => { %>
                 <div class = "preview-gallery prbut"> 
                     <img src=<%= event.image %> alt="Book" width="350" height="350"> 
