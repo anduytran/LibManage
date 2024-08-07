@@ -59,19 +59,33 @@
                             </div>
                             <div class = "addEvent">
                                 <h2>Add Event:</h2>
-                                <label for="eventTitle">Title: </label>
-                                <input type="text" id="eventTitle"><br>
+                                <% if (user) { %>
+                                    <label for="eventTitle">Title: </label>
+                                    <input type="text" id="eventTitle"><br>
 
-                                <label for="eventDescription">Description: </label>
-                                <input type="text" id="eventDescription"><br>
+                                    <label for="eventDescription">Description: </label>
+                                    <input type="text" id="eventDescription"><br>
 
-                                <label for="eventDate">Date: </label>
-                                <input type="text" id="eventDate" readonly><br>
+                                    <label for="eventDate">Date: </label>
+                                    <input type="text" id="eventDate" readonly><br>
 
-                                <label for="eventTime">Time: </label>
-                                <input type="text" id="eventTime"><br>
+                                    <label for="eventTime">Time: </label>
+                                    <input type="text" id="eventTime"><br>
+                                    <button onclick="saveEvent()">Save Event</button>
+                                <% } else {%>
+                                    <br><b>You must be logged into your employee account to add events!</b><br><br>
+                                    <label for="eventTitle">Title: </label>
+                                    <input type="text" id="eventTitle" readonly><br>
 
-                                <button onclick="saveEvent()">Save Event</button>
+                                    <label for="eventDescription">Description: </label>
+                                    <input type="text" id="eventDescription" readonly><br>
+
+                                    <label for="eventDate">Date: </label>
+                                    <input type="text" id="eventDate" readonly><br>
+
+                                    <label for="eventTime">Time: </label>
+                                    <input type="text" id="eventTime" readonly><br>
+                                <% } %>
                             </div>
                         </div>
                     </div>
@@ -80,7 +94,6 @@
     </div>
 
     <script>
-
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         const currentDate = new Date();
         const eventsThisMonth = [];
@@ -153,8 +166,8 @@
             function openMenu(year, month, day) {
                 const eventKey = `${year}-${month}-${day}`;
                 eventMenu.style.display = "block";
+                console.log[year];
                 eventDateInput.value = eventKey;
-
                 if (events[eventKey]) {
                     currentEventDisplay.innerText = `${events[eventKey]} at ${times[eventKey]} \n Description: ${descriptions[eventKey]}`;
                 } else {
