@@ -45,7 +45,7 @@
                 </form>
             </li>
             <% if (user) { %>
-                <li class="greeting">Welcome, <%= user.email %></li>
+                <li class="greeting">Welcome,</li> <a href = "/account"><%= user.email %></a>
                 <button class="logout" onclick="window.location.href='/logout'">Logout</button>
             <% } else { %>
                 <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>

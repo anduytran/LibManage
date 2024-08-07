@@ -162,7 +162,15 @@ app.post('/add-event', (req, res) => {
 });
 app.use(authRoutes);
 
-
+app.get('/account', (req, res) => {
+    Resource.find().sort({ createdAt: -1 })
+        .then(result => {
+            res.render('account', { resources: result });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
 
 app.get('/employees', requireAuth, (req, res) => res.render('employees'))
 
