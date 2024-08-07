@@ -3,6 +3,9 @@ const bcrypt = require('bcrypt')
 const { isEmail } = require('validator');
 
 const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
   email: {
     type: String,
     required: [true, 'Please enter an email'],
@@ -14,6 +17,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please enter a password'],
     minlength: [6, 'Minimum password length is 6 characters'],
+  },
+  userRole: {
+    type: String,
+    required: false
+  },
+  checkedItems: {
+    type: Array,
+    required: false
   }
 });
 // fire a function after doc is saved to db
