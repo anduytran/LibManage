@@ -1,3 +1,7 @@
+/* 
+    Credit: Net Ninja
+    https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU&index=4
+*/
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -24,6 +28,5 @@ const eventSchema = new Schema({
     }
 })
 
-// Here, the string "Event" is important to be the singular of the name of the collection we want to reference in the db
 const Event = mongoose.model('Event', eventSchema);
 module.exports = Event;

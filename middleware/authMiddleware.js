@@ -1,3 +1,5 @@
+
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
@@ -23,9 +25,10 @@ const requireAuth = (req, res, next) => {
     }
 }
 
+// checks whether a user is logged in,
+// if they are, it sends the user object to the front-end.
 const checkUser = (req, res, next) => {
     const token = req.cookies.jwt
-
     if (token) {
         jwt.verify(token, 'lib-manage secret', async (err, decodedToken) => {
             if (err) {

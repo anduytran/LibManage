@@ -9,12 +9,13 @@ const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 
 const app = express();
 
+// estbalishes the db connection
 const dbURI = "mongodb://localhost:27017/lib-manage"    
 mongoose.connect(dbURI)
     .then((result) => app.listen(8000))
     .catch((err) => console.log(err));
 
-
+// middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
     res.redirect('/home')
 })
 
+// renders the landing page, displaying all the resources on the db
 app.get('/home', (req, res) => {
     Resource.find().sort({ createdAt: -1 })
         .then(result => {
@@ -39,6 +41,7 @@ app.get('/home', (req, res) => {
         });
 });
 
+// searches the db based on the specified filter
 app.get('/home/search/', (req, res) => {
     console.log(req.query)
     console.log(req.query["search-filter"])
@@ -130,6 +133,7 @@ app.get('/home/search/', (req, res) => {
     }
 });
 
+// renders the events page, displaying all the events from the db
 app.get('/events', async (req, res) => {
     Event.find().sort({ createdAt: -1 })
         .then(result => {
@@ -140,6 +144,7 @@ app.get('/events', async (req, res) => {
         });
 });
 
+// renders the calendar view with the event objects from the db
 app.get('/calendar', (req, res) => {
     Event.find().sort({ createdAt: -1 })
     .then(result => {
@@ -150,6 +155,7 @@ app.get('/calendar', (req, res) => {
     });
 });
 
+// renders the form for creating events
 app.get('/add-event', (req, res) => {
     Resource.find().sort({ createdAt: -1 })
         .then(result => {
@@ -160,25 +166,22 @@ app.get('/add-event', (req, res) => {
         });
 });
 
+// sends event-request form to the database 
 app.post('/add-event', (req, res) => {
     const { title, description, image, date, time } = req.body;
     const newEvent = new Event({ title, description, image, date, time });
     newEvent.save();
     res.redirect('/events');
 });
+
+// handler for authentication routes
 app.use(authRoutes);
 
-app.get('/checkout', (req,res) => {
-    res.redirect();
-})
-
+// handler for redirecting admins to the control center
 app.get('/control-center', (req,res) => {
     res.render('controlCenter');
 })
 
-app.get('/employees', requireAuth, (req, res) => res.render('employees'))
-
-app.get('/logout', (req, res) => res.render('logout'))
 
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });

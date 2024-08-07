@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/calendarStyle.css">
         <link rel="stylesheet" href="/navbar.css">
     </head>
-    <ul class="topnav">
+    <ul class="topnav"> <!-- Navigation Bar -->
         <nav>
             <li id="logo">
                 <a href="/" class="logo"><img src = "/images/logo.png" height= 60></a>
@@ -34,7 +34,7 @@
         </nav>
     </ul>
 
-    <div class = "Calendar">
+    <div class = "Calendar"> <!-- Calendar -->
         <div class = "changeCalendar">
             <span id="prev-month" class="arrowLeft"></span>
             <span id="month-year"></span>
@@ -55,13 +55,13 @@
             <tbody id="calendar-body">
                     <div id="eventMenu" class="menu">
                         <div class="menu-content">
-                            <span class="close" onclick="closeMenu()">&times;</span>
+                            <span class="close" onclick="closeMenu()">&times;</span> <!-- Makes x in top right of menu and calls close function on click -->
                             <div class="event-information">
                                 <h1 id = "dateText">Events on </h1>
                                 <div id = "currentEvent"></div>
                             </div>
                             <div id = "addEvent" class = "addEvent">
-                                <h2>Add Event:</h2>
+                                <h2>Add Event:</h2> <!-- Instantiation of ids for use in script -->
                                 <input name="title" type="text" id="eventTitle"><br>
                                 <input type="text" id="eventDescription"><br>
                                 <input type="date" id="eventDate" readonly><br>
