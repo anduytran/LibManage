@@ -62,21 +62,12 @@
                                     <b>Events Scheduled: </b>
                                 </div>
                             </div>
-                            <div class = "addEvent">
+                            <div id = "addEvent" class = "addEvent">
                                 <h2>Add Event:</h2>
-                                <label for="eventTitle">Title: </label>
                                 <input name="title" type="text" id="eventTitle"><br>
-
-                                <label for="eventDescription">Description: </label>
                                 <input type="text" id="eventDescription"><br>
-
-                                <label for="eventDate">Date: </label>
                                 <input type="date" id="eventDate" readonly><br>
-
-                                <label for="eventTime">Time: </label>
                                 <input type="time" id="eventTime"><br>
-
-                                <button onclick="saveEvent()">Save Event</button>
                             </div>
                         </div>
                     </div>
@@ -101,6 +92,8 @@
             const prevMonth = document.getElementById("prev-month");
             const nextMonth = document.getElementById("next-month");
             const monthYearDisplay = document.getElementById("month-year");
+            const addEvent = document.getElementById("addEvent");
+            addEvent.style.display = "none";
 
             let currentYear = new Date().getFullYear();
             let currentMonth = new Date().getMonth() + 1;
@@ -168,7 +161,7 @@
                 eventDateInput.value = eventKey;
 
                 if (events[eventKey]) {
-                    currentEventDisplay.innerText = `${events[eventKey]} at ${times[eventKey]} \n Description: ${descriptions[eventKey]}`;
+                    currentEventDisplay.innerText = `${events[eventKey]} at ${times[eventKey]} \n ${descriptions[eventKey]}`;
                 } else {
                     currentEventDisplay.innerText = "No events scheduled on this day.";
                 }
@@ -181,21 +174,6 @@
                 eventDescriptionInput.value = "";
             }
 
-            function saveEvent() {
-                const date = eventDateInput.value;
-                const title = eventTitleInput.value;
-                const description = eventDescriptionInput.value;
-                const time = eventTimeInput.value;
-
-                if (title && description && time) {
-                    events[date] = title;
-                    descriptions[date] = description;
-                    times[date] = time;
-                    closeMenu();
-                } else {
-                    alert("One or more lines is empty!");
-                }
-            }
             function changeMonth(offset) {
                 currentMonth += offset;
                 if (currentMonth < 1) {
@@ -209,7 +187,6 @@
             }
 
             window.closeMenu = closeMenu;
-            window.saveEvent = saveEvent;
 
             prevMonth.addEventListener('click', () => changeMonth(-1));
             nextMonth.addEventListener('click', () => changeMonth(1));
