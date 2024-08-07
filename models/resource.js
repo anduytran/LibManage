@@ -1,3 +1,7 @@
+/* 
+    Credit: Net Ninja
+    https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU&index=4
+*/
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -34,6 +38,6 @@ const resourceSchema = new Schema({
     }
 })
 
-// Here, the string "Book" is important to be the singular of the name of the collection we want to reference in the db
+
 const resource = mongoose.model('Resource', resourceSchema);
 module.exports = resource;

@@ -1,3 +1,8 @@
+/* 
+    Credit: Net Ninja
+    https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU&index=4
+    https://www.youtube.com/watch?v=SnoAwLP1a-0&list=PL4cUxeGkcC9iqqESP8335DA5cRFp8loyp
+*/
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 const { isEmail } = require('validator');
@@ -27,14 +32,9 @@ const userSchema = new mongoose.Schema({
     required: false
   }
 });
-// fire a function after doc is saved to db
-// userSchema.post('save',  function (doc, next) { 
 
-
-//     next();
-// })
-
-// fire a function before doc is saved to db
+// this function grabs the password input, hashes it,
+// ands sends the hash to the db as the pasword
 userSchema.pre('save', async function(next) { 
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
@@ -56,5 +56,4 @@ userSchema.statics.login = async function(email, plainPassword) {
 }
 
 const User = mongoose.model('user', userSchema);
-
 module.exports = User;

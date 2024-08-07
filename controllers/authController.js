@@ -1,3 +1,8 @@
+/* 
+    Credit: Net Ninja
+    https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU&index=4
+*/
+
 const User = require("../models/user");
 const jwt = require('jsonwebtoken')
 
@@ -47,6 +52,7 @@ module.exports.login_get = (req, res) => {
     res.render('login');
 }
 
+// creates a new user object, and a new token for that user
 module.exports.signup_post = async (req, res) => {
     const { name, email, password } = req.body;
     const userRole = "user"
@@ -66,6 +72,7 @@ module.exports.signup_post = async (req, res) => {
    
 }
 
+// checks whether the credentials are valid and sends the user a token
 module.exports.login_post = async (req, res) => {
     const { email, password } = req.body;
   
@@ -83,6 +90,7 @@ module.exports.login_post = async (req, res) => {
     }
 }
 
+// gracefully logs out a user by expiring the JWT
 module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 })
     res.redirect('/home');
