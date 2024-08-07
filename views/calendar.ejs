@@ -49,16 +49,15 @@
             </thead>
             <tbody id="calendar-body">
                     <div id="eventMenu" class="menu">
-                        <div class="menu-content">
+                        <div id = "menuContent" class="menu-content">
                             <span class="close" onclick="closeMenu()">&times;</span>
                             <div class="event-information">
                                 <h1>Events</h1>
                                 <div id="currentEvent">
-                                    <b>Events Scheduled: </b>
                                 </div>
                             </div>
-                            <div class = "addEvent">
-                                <h2>Add Event:</h2>
+                            <div id = "addEvent" class = "addEvent">
+                                <br><h2>Add Event:</h2>
                                 <% if (user) { %>
                                     <label for="eventTitle">Title: </label>
                                     <input type="text" id="eventTitle"><br>
