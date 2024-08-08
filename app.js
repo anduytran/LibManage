@@ -155,11 +155,11 @@ app.get('/calendar', (req, res) => {
     });
 });
 
-// renders the form for creating events
-app.get('/add-event', requireAuth, (req, res) => {
+// renders the form for control center mage
+app.get('/control-center', requireAuth, (req, res) => {
     Resource.find().sort({ createdAt: -1 })
         .then(result => {
-            res.render('eventCreate', { resources: result });
+            res.render('controlCenter', { resources: result });
         })
         .catch(err => {
             console.log(err);

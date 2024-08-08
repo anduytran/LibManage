@@ -2,26 +2,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Creation</title>
+    <title>ManageLib | Manage Resources</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/event-addStyle.css">
 </head>
 <body>
-    <form action="/add-event" method="POST">
-        <label for="title">Event Title</label><br>
-        <input type="text" id='title' name="title" required>
-        <br><br>
-        <label for="description">Event Description</label><br>        
-        <textarea id="description" name="description"></textarea>
-        <br><br>
-        <label for="body">Date</label><br>
-        <input type="date" id="date" name="date" required></input>
-        <br><br>
-        <label for="time">Time</label><br>
-        <input type="time" id="time" name="time" required></input>
-        <br><br>
-        <label for="image">Image Link</label><br>
-        <input type="text" id="image" name="image" required></input>
-        <br><br>
-        <button>Submit</button>
-    </form>
+    <ul class="topnav"> <!-- Navigation Bar -->
+        <nav>
+            <li id="logo">
+                <a href="/" class="logo"><img src = "/images/logo.png" height= 60></a>
+            </li>
+            
+            <li id="home">
+                <a href="/" class="tabs">Home</a>
+            </li>
+
+            <li id="add-event" class="tabs">
+                <button class="tabs" onclick="openMenu()">Add Event</button>
+            </li>
+
+            <li id="add-book" class="tabs">
+                <button class="tabs" onclick="openBook()">Add Book</button>
+            </li>
+
+            <li id="createAccount" class="tabs">
+                <button onclick="window.location.href='/signup'">Create Member Account</button>
+            </li>
+
+            <!-- Users and guests have different greetings, so -->
+            <% if (user) { %>
+                <li class="greeting">Welcome, <%= user.name %></li>
+                <button class="logout" onclick="window.location.href='/logout'">Logout</button>
+            <% } else { %>
+                <button class="signup" onclick="window.location.href='/signup'">Sign Up</button>
+                <button class="login" onclick="window.location.href='/login'">Log In</button>
+            <% } %>
+        </nav>
+    </ul>
+
+    <div id="eventMenu" class="menu"> <!-- Menu for events -->
+        <div class="menu-content">
+            <span class="close" onclick="closeMenu()">&times;</span>
+            <h1>Events</h1>
+            <div id = "addEvent" class = "addEvent">
+                <form action="/add-event" method="POST">
+                    <label for="title">Event Title</label><br>
+                    <input type="text" id='title' name="title" required>
+                    <br><br>
+                    <label for="description">Event Description</label><br>        
+                    <textarea id="description" name="description"></textarea>
+                    <br><br>
+                    <label for="body">Date</label><br>
+                    <input type="date" id="date" name="date" required></input>
+                    <br><br>
+                    <label for="time">Time</label><br>
+                    <input type="time" id="time" name="time" required></input>
+                    <br><br>
+                    <label for="image">Image Link</label><br>
+                    <input type="text" id="image" name="image" required></input>
+                    <br><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="bookMenu" class="menu"> <!-- Menu for books -->
+        <div class="menu-content">
+            <span class="close" onclick="closeBook()">&times;</span>
+            <h1>Add Resources</h1><br>
+            <div id = "addEvent" class = "addEvent">
+                <form action="/add-book" method="POST">
+                    <label for="type">Type</label><br>
+                    <select id='type' name="type" required>
+                        <option value = "magazine">Magazine</option>
+                        <option value = "book">Book</option>
+                    </select><br><br>
+
+                    <label for="title">Book Title</label><br>
+                    <input type="text" id='title' name="title" required>
+                    <br><br>
+                    <label for="author">Author</label><br>
+                    <input type="text" id='title' name="title" required>
+                    <br><br>
+                    <label for="description">Description</label><br>        
+                    <textarea id="description" name="description"></textarea>
+                    <br><br>
+                    <label for="body">Author</label><br>
+                    <input type="date" id="date" name="date" required></input>
+                    <br><br>
+                    <label for="time">Time</label><br>
+                    <input type="time" id="time" name="time" required></input>
+                    <br><br>
+                    <label for="image">Image Link</label><br>
+                    <input type="text" id="image" name="image" required></input>
+                    <br><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="preview-gallery-container"> <!-- Gallery for resources-->
+        <% resources.forEach(resource => { %>
+            <% if (resource.type == "book") { %>
+                
+                <div class = "preview-gallery"> 
+                    <img src="/images/book.jpeg" alt="Book" width="180" height="276"> 
+
+                    <div class="title">Title: <%= resource.title %></div> 
+                    <div class="author">Author: <%= resource.author %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div> 
+                    <% if (user) { %>
+                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Edit</button> 
+                   <% } %>
+                </div>  
+
+            <% } else if (resource.type == "magazine") { %>
+                
+                <div class = "preview-gallery">
+                    <img src="/images/magazine.jpg" alt="Book" width="180" height="276"> 
+
+                    <div class="publisher">Publisher: <%= resource.publisher %></div> 
+                    <div class="issue">Issue: <%= resource.issue %>, <%= resource.year %></div>
+                    <div class="copies">Copies: <%= resource.copies %></div>
+                    <% if (user) { %>
+                        <button class="Checkout-button props" onclick="window.location.href='/Checkout-button/'">Edit</button> 
+                   <% } %>
+                </div>   
+
+            <% } %>
+        <% }) %>
+    </div>
 </body>
 </html>
+
+<script>
+    function openMenu() {
+        eventMenu.style.display = "block";
+    }
+    function openBook() {
+        bookMenu.style.display = "block";
+    }
+    function closeBook() {
+        bookMenu.style.display = "none";
+    }
+    function closeMenu() {
+        eventMenu.style.display = "none";
+    }
+</script>
